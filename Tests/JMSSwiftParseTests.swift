@@ -1,25 +1,25 @@
 //
-//  JMSParseTests.swift
-//  JMSParseTests
+//  JMSSwiftParseTests.swift
+//  JMSSwiftParseTests
 //
 //  Created by Jose Manuel Sánchez Peñarroja on 10/11/14.
 //  Copyright (c) 2014 José Manuel Sánchez. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import JMSSwiftParse
 import XCTest
-import JMSParse
 
 class TestClass {
 	var name = ""
 	var email = ""
-	var url = NSURL()
+	var url : NSURL? = NSURL()
 	var available = false
 	var amount = 0
 	var date = NSDate()
 }
 
-class JMSParseTests: XCTestCase {
+class JMSSwiftParseTests: XCTestCase {
 	
 	let object = TestClass()
 	
@@ -48,7 +48,7 @@ class JMSParseTests: XCTestCase {
 		object.name = other
 		
 		XCTAssertFalse(parse(&object.name,name,longerThan(5)))
-		XCTAssertTrue(object.name!=name)
+		XCTAssertFalse(object.name==name)
 		
 		XCTAssertTrue(parse(&object.name,name,!longerThan(5)))
 		XCTAssertTrue(object.name==name)
@@ -60,7 +60,7 @@ class JMSParseTests: XCTestCase {
 	}
 	
 	func testNSString() {
-		let name : NSString = NSString("Antonio")
+		let name = NSString(string: "Pepe")
 		let other = "blah"
 		
 		XCTAssertTrue(parse(&object.name,name))
@@ -74,7 +74,7 @@ class JMSParseTests: XCTestCase {
 		object.name = other
 		
 		XCTAssertFalse(parse(&object.name,name,longerThan(5)))
-		XCTAssertTrue(object.name!=name)
+		XCTAssertFalse(object.name==name)
 		
 		XCTAssertTrue(parse(&object.name,name,!longerThan(5)))
 		XCTAssertTrue(object.name==name)
@@ -89,10 +89,10 @@ class JMSParseTests: XCTestCase {
 		let validEmail = "pepe@blah.com"
 		let invalidEmail = "other"
 		
-		XCTAssertTrue(parse(&object.email,validEmail, isEmail))
-		XCTAssertTrue(object.email==email)
+		XCTAssertTrue(parse(&object.email,validEmail, isEmail()))
+		XCTAssertTrue(object.email==validEmail)
 		
-		XCTAssertFalse(parse(&object.email,invalidEmail, isEmail))
+		XCTAssertFalse(parse(&object.email,invalidEmail, isEmail()))
 		XCTAssertFalse(object.email==invalidEmail)
 	}
 	
@@ -110,8 +110,8 @@ class JMSParseTests: XCTestCase {
 	func testBool() {
 		let trueBool = true
 		let falseBool = false
-		let trueNumber = NSNumber(bool: true))
-		let falseNumber = NSNumber(bool: false))
+		let trueNumber = NSNumber(bool: true)
+		let falseNumber = NSNumber(bool: false)
 		let trueString = "true"
 		let falseString = "false"
 		let trueString2 = "TRUE"
@@ -141,8 +141,8 @@ class JMSParseTests: XCTestCase {
 	func testInt() {
 		let positiveInt = 33
 		let negativeInt = -45
-		let positiveNumber = NSNumber(10)
-		let negativeNumber = NSNumber(-50)
+		let positiveNumber = NSNumber(int: 10)
+		let negativeNumber = NSNumber(int: -50)
 		
 		// Int
 		
@@ -170,25 +170,25 @@ class JMSParseTests: XCTestCase {
 		// NSNumber
 		
 		XCTAssertTrue(parse(&object.amount, positiveNumber))
-		XCTAssertTrue(object.amount==positiveNumber.intValue)
+		XCTAssertTrue(object.amount==positiveNumber.integerValue)
 		
 		XCTAssertTrue(parse(&object.amount, negativeNumber))
-		XCTAssertTrue(object.amount==negativeNumber.intValue)
+		XCTAssertTrue(object.amount==negativeNumber.integerValue)
 		
 		XCTAssertFalse(parse(&object.amount, positiveNumber, greaterThan(40)))
-		XCTAssertFalse(object.amount==positiveNumber.intValue)
+		XCTAssertFalse(object.amount==positiveNumber.integerValue)
 		
 		XCTAssertTrue(parse(&object.amount, positiveNumber, smallerThanOrEqual(33)))
-		XCTAssertTrue(object.amount==positiveNumber.intValue)
+		XCTAssertTrue(object.amount==positiveNumber.integerValue)
 		
 		XCTAssertFalse(parse(&object.amount, negativeNumber, equal(4)))
-		XCTAssertFalse(object.amount==negativeNumber.intValue)
+		XCTAssertFalse(object.amount==negativeNumber.integerValue)
 		
 		XCTAssertTrue(parse(&object.amount, negativeNumber, equal(-45)))
-		XCTAssertTrue(object.amount==negativeNumber.intValue)
+		XCTAssertTrue(object.amount==negativeNumber.integerValue)
 		
 		XCTAssertTrue(parse(&object.amount, positiveNumber, !equal(40)))
-		XCTAssertTrue(object.amount==positiveNumber.intValue)
+		XCTAssertTrue(object.amount==positiveNumber.integerValue)
 	}
     
 }

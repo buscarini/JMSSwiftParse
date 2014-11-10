@@ -1,12 +1,14 @@
-//
-//  conversions.swift
-//  JMSParse
-//
-//  Created by Jose Manuel Sánchez Peñarroja on 10/11/14.
-//  Copyright (c) 2014 José Manuel Sánchez. All rights reserved.
-//
+// Playground - noun: a place where people can play
 
-import Foundation
+import UIKit
+import JMSSwiftParse
+
+var str = "Hello, playground"
+
+let validUrlString = "http://www.google.com"
+let invalidUrlString = "blah"
+
+var url : NSURL?
 
 extension String {
 	func toDouble() -> Double? {
@@ -82,3 +84,40 @@ func convert(value : NSString?) -> Bool? {
 	return convert(value as String?)
 }
 
+func convert(value : String?) -> NSURL? {
+	if let string = value {
+		return NSURL(string: string)
+	}
+	return nil
+}
+
+func convert(value : NSString?) -> NSURL? {
+	return convert(value as String?)
+}
+
+func convert(value : NSURL?) -> String? {
+	if let string = value {
+		return string.absoluteString
+	}
+	return nil
+}
+
+func convert(value : NSURL?) -> NSString? {
+	return convert(value) as NSString?
+}
+
+let convertedUrl: NSURL = convert(validUrlString)!
+
+public func testParse<T>(inout property: T, value: AnyObject?) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		return true
+	}
+	return false
+}
+
+testParse(&url, validUrlString)
+
+parse(&url,validUrlString)
+
+parse(&url,invalidUrlString)

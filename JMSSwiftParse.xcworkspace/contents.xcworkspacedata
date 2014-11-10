@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:JMSSwiftParse.playground">
+   </FileRef>
+   <FileRef
       location = "group:iOS Example/iOS Example.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:JMSParse/JMSParse.xcodeproj">
+      location = "group:JMSSwiftParse/JMSSwiftParse.xcodeproj">
    </FileRef>
 </Workspace>

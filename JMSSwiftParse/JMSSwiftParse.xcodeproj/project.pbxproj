@@ -7,106 +7,106 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC8222791A10A66B00EDB013 /* JMSParse.h in Headers */ = {isa = PBXBuildFile; fileRef = AC8222781A10A66B00EDB013 /* JMSParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC82227F1A10A66B00EDB013 /* JMSParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC8222731A10A66B00EDB013 /* JMSParse.framework */; };
-		AC8222861A10A66B00EDB013 /* JMSParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8222851A10A66B00EDB013 /* JMSParseTests.swift */; };
-		AC8222BE1A10A6C000EDB013 /* parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8222BD1A10A6C000EDB013 /* parser.swift */; };
-		AC8222C01A10A6D500EDB013 /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8222BF1A10A6D500EDB013 /* conversions.swift */; };
-		AC8222C21A10A78400EDB013 /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8222C11A10A78400EDB013 /* validation.swift */; };
+		AC0216CC1A11079F00746FB6 /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
+		AC0216CD1A11079F00746FB6 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
+		AC0216CE1A11079F00746FB6 /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
+		ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AC8222801A10A66B00EDB013 /* PBXContainerItemProxy */ = {
+		ACD3102A1A10E55B001989F1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AC82226A1A10A66A00EDB013 /* Project object */;
+			containerPortal = ACD310141A10E55A001989F1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AC8222721A10A66B00EDB013;
-			remoteInfo = JMSParse;
+			remoteGlobalIDString = ACD3101C1A10E55B001989F1;
+			remoteInfo = JMSSwiftParse;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC8222731A10A66B00EDB013 /* JMSParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMSParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC8222771A10A66B00EDB013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC8222781A10A66B00EDB013 /* JMSParse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMSParse.h; sourceTree = "<group>"; };
-		AC82227E1A10A66B00EDB013 /* JMSParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMSParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC8222841A10A66B00EDB013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC8222851A10A66B00EDB013 /* JMSParseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMSParseTests.swift; sourceTree = "<group>"; };
-		AC8222BD1A10A6C000EDB013 /* parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parser.swift; sourceTree = "<group>"; };
-		AC8222BF1A10A6D500EDB013 /* conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversions.swift; sourceTree = "<group>"; };
-		AC8222C11A10A78400EDB013 /* validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = validation.swift; sourceTree = "<group>"; };
+		ACD3101D1A10E55B001989F1 /* JMSSwiftParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMSSwiftParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD310211A10E55B001989F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD310281A10E55B001989F1 /* JMSSwiftParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMSSwiftParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACD3102E1A10E55B001989F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JMSSwiftParse.h; path = ../../Source/JMSSwiftParse.h; sourceTree = "<group>"; };
+		ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JMSSwiftParseTests.swift; path = ../../Tests/JMSSwiftParseTests.swift; sourceTree = "<group>"; };
+		ACD310471A10E965001989F1 /* conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversions.swift; path = ../../Source/conversions.swift; sourceTree = "<group>"; };
+		ACD310481A10E965001989F1 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parse.swift; path = ../../Source/parse.swift; sourceTree = "<group>"; };
+		ACD310491A10E965001989F1 /* validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = validation.swift; path = ../../Source/validation.swift; sourceTree = "<group>"; };
+		ACD3107F1A10ED09001989F1 /* JMSSwiftParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMSSwiftParse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AC82226F1A10A66B00EDB013 /* Frameworks */ = {
+		ACD310191A10E55B001989F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC82227B1A10A66B00EDB013 /* Frameworks */ = {
+		ACD310251A10E55B001989F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC82227F1A10A66B00EDB013 /* JMSParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AC8222691A10A66A00EDB013 = {
+		ACD310131A10E55A001989F1 = {
 			isa = PBXGroup;
 			children = (
-				AC8222751A10A66B00EDB013 /* JMSParse */,
-				AC8222821A10A66B00EDB013 /* JMSParseTests */,
-				AC8222741A10A66B00EDB013 /* Products */,
+				ACD3101F1A10E55B001989F1 /* JMSSwiftParse */,
+				ACD3102C1A10E55B001989F1 /* JMSSwiftParseTests */,
+				ACD3101E1A10E55B001989F1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AC8222741A10A66B00EDB013 /* Products */ = {
+		ACD3101E1A10E55B001989F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC8222731A10A66B00EDB013 /* JMSParse.framework */,
-				AC82227E1A10A66B00EDB013 /* JMSParseTests.xctest */,
+				ACD3101D1A10E55B001989F1 /* JMSSwiftParse.framework */,
+				ACD310281A10E55B001989F1 /* JMSSwiftParseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AC8222751A10A66B00EDB013 /* JMSParse */ = {
+		ACD3101F1A10E55B001989F1 /* JMSSwiftParse */ = {
 			isa = PBXGroup;
 			children = (
-				AC8222781A10A66B00EDB013 /* JMSParse.h */,
-				AC8222BF1A10A6D500EDB013 /* conversions.swift */,
-				AC8222C11A10A78400EDB013 /* validation.swift */,
-				AC8222BD1A10A6C000EDB013 /* parser.swift */,
-				AC8222761A10A66B00EDB013 /* Supporting Files */,
+				ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */,
+				ACD3107F1A10ED09001989F1 /* JMSSwiftParse.swift */,
+				ACD310471A10E965001989F1 /* conversions.swift */,
+				ACD310481A10E965001989F1 /* parse.swift */,
+				ACD310491A10E965001989F1 /* validation.swift */,
+				ACD310201A10E55B001989F1 /* Supporting Files */,
 			);
-			path = JMSParse;
+			path = JMSSwiftParse;
 			sourceTree = "<group>";
 		};
-		AC8222761A10A66B00EDB013 /* Supporting Files */ = {
+		ACD310201A10E55B001989F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC8222771A10A66B00EDB013 /* Info.plist */,
+				ACD310211A10E55B001989F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		AC8222821A10A66B00EDB013 /* JMSParseTests */ = {
+		ACD3102C1A10E55B001989F1 /* JMSSwiftParseTests */ = {
 			isa = PBXGroup;
 			children = (
-				AC8222851A10A66B00EDB013 /* JMSParseTests.swift */,
-				AC8222831A10A66B00EDB013 /* Supporting Files */,
+				ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */,
+				ACD3102D1A10E55B001989F1 /* Supporting Files */,
 			);
-			path = JMSParseTests;
+			path = JMSSwiftParseTests;
 			sourceTree = "<group>";
 		};
-		AC8222831A10A66B00EDB013 /* Supporting Files */ = {
+		ACD3102D1A10E55B001989F1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AC8222841A10A66B00EDB013 /* Info.plist */,
+				ACD3102E1A10E55B001989F1 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -114,97 +114,97 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		AC8222701A10A66B00EDB013 /* Headers */ = {
+		ACD3101A1A10E55B001989F1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8222791A10A66B00EDB013 /* JMSParse.h in Headers */,
+				ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AC8222721A10A66B00EDB013 /* JMSParse */ = {
+		ACD3101C1A10E55B001989F1 /* JMSSwiftParse */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC8222891A10A66B00EDB013 /* Build configuration list for PBXNativeTarget "JMSParse" */;
+			buildConfigurationList = ACD310331A10E55B001989F1 /* Build configuration list for PBXNativeTarget "JMSSwiftParse" */;
 			buildPhases = (
-				AC82226E1A10A66B00EDB013 /* Sources */,
-				AC82226F1A10A66B00EDB013 /* Frameworks */,
-				AC8222701A10A66B00EDB013 /* Headers */,
-				AC8222711A10A66B00EDB013 /* Resources */,
+				ACD310181A10E55B001989F1 /* Sources */,
+				ACD310191A10E55B001989F1 /* Frameworks */,
+				ACD3101A1A10E55B001989F1 /* Headers */,
+				ACD3101B1A10E55B001989F1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = JMSParse;
-			productName = JMSParse;
-			productReference = AC8222731A10A66B00EDB013 /* JMSParse.framework */;
+			name = JMSSwiftParse;
+			productName = JMSSwiftParse;
+			productReference = ACD3101D1A10E55B001989F1 /* JMSSwiftParse.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AC82227D1A10A66B00EDB013 /* JMSParseTests */ = {
+		ACD310271A10E55B001989F1 /* JMSSwiftParseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC82228C1A10A66B00EDB013 /* Build configuration list for PBXNativeTarget "JMSParseTests" */;
+			buildConfigurationList = ACD310361A10E55B001989F1 /* Build configuration list for PBXNativeTarget "JMSSwiftParseTests" */;
 			buildPhases = (
-				AC82227A1A10A66B00EDB013 /* Sources */,
-				AC82227B1A10A66B00EDB013 /* Frameworks */,
-				AC82227C1A10A66B00EDB013 /* Resources */,
+				ACD310241A10E55B001989F1 /* Sources */,
+				ACD310251A10E55B001989F1 /* Frameworks */,
+				ACD310261A10E55B001989F1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AC8222811A10A66B00EDB013 /* PBXTargetDependency */,
+				ACD3102B1A10E55B001989F1 /* PBXTargetDependency */,
 			);
-			name = JMSParseTests;
-			productName = JMSParseTests;
-			productReference = AC82227E1A10A66B00EDB013 /* JMSParseTests.xctest */;
+			name = JMSSwiftParseTests;
+			productName = JMSSwiftParseTests;
+			productReference = ACD310281A10E55B001989F1 /* JMSSwiftParseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AC82226A1A10A66A00EDB013 /* Project object */ = {
+		ACD310141A10E55A001989F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "José Manuel Sánchez";
 				TargetAttributes = {
-					AC8222721A10A66B00EDB013 = {
+					ACD3101C1A10E55B001989F1 = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					AC82227D1A10A66B00EDB013 = {
+					ACD310271A10E55B001989F1 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
-			buildConfigurationList = AC82226D1A10A66B00EDB013 /* Build configuration list for PBXProject "JMSParse" */;
+			buildConfigurationList = ACD310171A10E55A001989F1 /* Build configuration list for PBXProject "JMSSwiftParse" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = AC8222691A10A66A00EDB013;
-			productRefGroup = AC8222741A10A66B00EDB013 /* Products */;
+			mainGroup = ACD310131A10E55A001989F1;
+			productRefGroup = ACD3101E1A10E55B001989F1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC8222721A10A66B00EDB013 /* JMSParse */,
-				AC82227D1A10A66B00EDB013 /* JMSParseTests */,
+				ACD3101C1A10E55B001989F1 /* JMSSwiftParse */,
+				ACD310271A10E55B001989F1 /* JMSSwiftParseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AC8222711A10A66B00EDB013 /* Resources */ = {
+		ACD3101B1A10E55B001989F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC82227C1A10A66B00EDB013 /* Resources */ = {
+		ACD310261A10E55B001989F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -214,36 +214,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AC82226E1A10A66B00EDB013 /* Sources */ = {
+		ACD310181A10E55B001989F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8222BE1A10A6C000EDB013 /* parser.swift in Sources */,
-				AC8222C01A10A6D500EDB013 /* conversions.swift in Sources */,
-				AC8222C21A10A78400EDB013 /* validation.swift in Sources */,
+				AC0216CC1A11079F00746FB6 /* conversions.swift in Sources */,
+				AC0216CD1A11079F00746FB6 /* parse.swift in Sources */,
+				AC0216CE1A11079F00746FB6 /* validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC82227A1A10A66B00EDB013 /* Sources */ = {
+		ACD310241A10E55B001989F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC8222861A10A66B00EDB013 /* JMSParseTests.swift in Sources */,
+				ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AC8222811A10A66B00EDB013 /* PBXTargetDependency */ = {
+		ACD3102B1A10E55B001989F1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC8222721A10A66B00EDB013 /* JMSParse */;
-			targetProxy = AC8222801A10A66B00EDB013 /* PBXContainerItemProxy */;
+			target = ACD3101C1A10E55B001989F1 /* JMSSwiftParse */;
+			targetProxy = ACD3102A1A10E55B001989F1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		AC8222871A10A66B00EDB013 /* Debug */ = {
+		ACD310311A10E55B001989F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -289,7 +289,7 @@
 			};
 			name = Debug;
 		};
-		AC8222881A10A66B00EDB013 /* Release */ = {
+		ACD310321A10E55B001989F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -328,7 +328,7 @@
 			};
 			name = Release;
 		};
-		AC82228A1A10A66B00EDB013 /* Debug */ = {
+		ACD310341A10E55B001989F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -336,16 +336,17 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JMSParse/Info.plist;
+				INFOPLIST_FILE = JMSSwiftParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		AC82228B1A10A66B00EDB013 /* Release */ = {
+		ACD310351A10E55B001989F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -353,17 +354,19 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = JMSParse/Info.plist;
+				INFOPLIST_FILE = JMSSwiftParse/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
-		AC82228D1A10A66B00EDB013 /* Debug */ = {
+		ACD310371A10E55B001989F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -372,56 +375,60 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JMSParseTests/Info.plist;
+				INFOPLIST_FILE = JMSSwiftParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		AC82228E1A10A66B00EDB013 /* Release */ = {
+		ACD310381A10E55B001989F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = JMSParseTests/Info.plist;
+				INFOPLIST_FILE = JMSSwiftParseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC82226D1A10A66B00EDB013 /* Build configuration list for PBXProject "JMSParse" */ = {
+		ACD310171A10E55A001989F1 /* Build configuration list for PBXProject "JMSSwiftParse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC8222871A10A66B00EDB013 /* Debug */,
-				AC8222881A10A66B00EDB013 /* Release */,
+				ACD310311A10E55B001989F1 /* Debug */,
+				ACD310321A10E55B001989F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC8222891A10A66B00EDB013 /* Build configuration list for PBXNativeTarget "JMSParse" */ = {
+		ACD310331A10E55B001989F1 /* Build configuration list for PBXNativeTarget "JMSSwiftParse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC82228A1A10A66B00EDB013 /* Debug */,
-				AC82228B1A10A66B00EDB013 /* Release */,
+				ACD310341A10E55B001989F1 /* Debug */,
+				ACD310351A10E55B001989F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC82228C1A10A66B00EDB013 /* Build configuration list for PBXNativeTarget "JMSParseTests" */ = {
+		ACD310361A10E55B001989F1 /* Build configuration list for PBXNativeTarget "JMSSwiftParseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC82228D1A10A66B00EDB013 /* Debug */,
-				AC82228E1A10A66B00EDB013 /* Release */,
+				ACD310371A10E55B001989F1 /* Debug */,
+				ACD310381A10E55B001989F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AC82226A1A10A66A00EDB013 /* Project object */;
+	rootObject = ACD310141A10E55A001989F1 /* Project object */;
 }
