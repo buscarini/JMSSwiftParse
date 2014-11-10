@@ -65,3 +65,20 @@ func convert(value : String?) -> NSNumber? {
 	return nil
 }
 
+func convert(value : String?) -> Bool? {
+	if let string = value {
+		let lowercase = string.lowercaseString
+		if lowercase=="true" {
+			return true
+		}
+		else if lowercase=="false" {
+			return false
+		}
+	}
+	return nil
+}
+
+func convert(value : NSString?) -> Bool? {
+	return convert(value as String?)
+}
+
