@@ -1,7 +1,7 @@
 // Playground - noun: a place where people can play
 
 import UIKit
-import JMSSwiftParse
+
 
 func convert<T,U>(value : T?) -> U? {
 	if let converted = value as? U {
@@ -10,46 +10,55 @@ func convert<T,U>(value : T?) -> U? {
 	return nil
 }
 
-func convert(value : String?) -> NSURL? {
+
+func convert<T: BooleanLiteralConvertible>(value : String?) -> T? {
 	if let string = value {
-		return NSURL(string: string)
+		let lowercase = string.lowercaseString
+		if lowercase=="true" {
+			return true
+		}
+		else if lowercase=="false" {
+			return false
+		}
 	}
 	return nil
 }
 
-public func testParse<T,U>(inout property: T, value: U?) -> Bool {
-	let converted : T? = convert(value)
-	if let valid = converted {
+func convert<T: BooleanLiteralConvertible>(value : String) -> T? {
+	let lowercase = value.lowercaseString
+	if lowercase=="true" {
 		return true
 	}
+	else if lowercase=="false" {
+		return false
+	}
+	
+	return nil
+}
+
+public func parse<T,U>(inout property: T, value: U?) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	
 	return false
 }
 
-func reconvert<T,U>(property: T?, value: U?) -> T? {
+func parse<T: BooleanLiteralConvertible>(inout property: T, value: String?) -> T? {
 	let converted : T? = convert(value)
-	return converted
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	
+	return false
 }
+	
+var available = false
 
-//func reconvert(property: String?, value: NSURL?) -> NSURL? {
-//	let converted : NSURL? = convert(value)
-//	return converted
-//}
+parse(&available,"true")
 
-let validUrlString : String? = "http://www.google.com"
-let invalidUrlString = "blah"
+available
 
-var url : NSURL? = NSURL(string: "http://www.google.com")
-
-var convertedUrl: NSURL? = convert(validUrlString)
-
-var strictUrl : NSURL = NSURL(string: "http://www.google.com")!
-
-reconvert(convertedUrl, validUrlString)
-
-reconvert(strictUrl, validUrlString)
-
-//testParse(&convertedUrl, validUrlString)
-
-testParse(&url, validUrlString)
-
-parse(&url, validUrlString)

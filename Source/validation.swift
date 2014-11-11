@@ -81,20 +81,17 @@ public func shorterThanOrEqual(length: Int) -> (NSString) -> Bool {
 
 /// MARK : Semantics
 
-public func isEmail() -> (NSString) -> Bool {
+public func isEmail(string: NSString) -> Bool {
 	let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
-	return {
-		(string) in
-		let emailTestPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-		if let predicate = emailTestPredicate {
-			return predicate.evaluateWithObject(string)
-		}
-		return false
+	let emailTestPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+	if let predicate = emailTestPredicate {
+		return predicate.evaluateWithObject(string)
 	}
+	return false
 }
 
-public func isEmail() -> (String) -> Bool {
-	return { (string) in return isEmail()(NSString(string: string)) }
+public func isEmail(string: String) -> Bool {
+	return isEmail(NSString(string: string))
 }
 
 /// MARK: Function operators

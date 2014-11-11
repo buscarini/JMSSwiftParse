@@ -22,19 +22,40 @@ func convert<T,U>(value : T?) -> U? {
 	return nil
 }
 
-func convert<T : IntegerType>(value : T?) -> String? {
-	if let number = value {
-		return number.description
+/// MARK: Bool
+
+func convert<T: BooleanLiteralConvertible>(value : String?) -> T? {
+	if let string = value {
+		let lowercase = string.lowercaseString
+		if lowercase=="true" {
+			return true
+		}
+		else if lowercase=="false" {
+			return false
+		}
 	}
 	return nil
 }
 
-//func convert(value : Int?) -> String? {
-//	if let number = value {
-//		return String(format: "%d", number)
-//	}
-//	return nil
-//}
+func convert<T: BooleanLiteralConvertible>(value : T?) -> String? {
+	if let boolValue = value as? Bool {
+		if boolValue {
+			return "true"
+		}
+		else {
+			return "false"
+		}
+	}
+	return nil
+}
+
+func convert<T: BooleanLiteralConvertible>(value : NSString?) -> T? {
+	return convert(value as? String)
+}
+
+func convert<T: BooleanLiteralConvertible>(value : T?) -> NSString? {
+	return convert(value)
+}
 
 func convert(value : NSNumber?) -> NSString? {
 	if let number = value {
@@ -66,22 +87,6 @@ func convert(value : String?) -> NSNumber? {
 	return nil
 }
 
-func convert(value : String?) -> Bool? {
-	if let string = value {
-		let lowercase = string.lowercaseString
-		if lowercase=="true" {
-			return true
-		}
-		else if lowercase=="false" {
-			return false
-		}
-	}
-	return nil
-}
-
-func convert(value : NSString?) -> Bool? {
-	return convert(value as String?)
-}
 
 func convert(value : String?) -> NSURL? {
 	if let string = value {

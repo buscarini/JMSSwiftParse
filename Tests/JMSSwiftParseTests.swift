@@ -16,6 +16,7 @@ class TestClass {
 	var requiredUrl : NSURL = NSURL(string : "blah")!
 	var optionalUrl : NSURL? = NSURL()
 	var available = false
+	var availableString = ""
 	var amount = 0
 	var date = NSDate()
 }
@@ -90,10 +91,10 @@ class JMSSwiftParseTests: XCTestCase {
 		let validEmail = "pepe@blah.com"
 		let invalidEmail = "other"
 		
-		XCTAssertTrue(parse(&object.email,validEmail, isEmail()))
+		XCTAssertTrue(parse(&object.email,validEmail, isEmail))
 		XCTAssertTrue(object.email==validEmail)
 		
-		XCTAssertFalse(parse(&object.email,invalidEmail, isEmail()))
+		XCTAssertFalse(parse(&object.email,invalidEmail, isEmail))
 		XCTAssertFalse(object.email==invalidEmail)
 	}
 	
@@ -124,6 +125,11 @@ class JMSSwiftParseTests: XCTestCase {
 		let trueString2 = "TRUE"
 		let falseString2 = "FALSE"
 		
+		let optionalTrueString = "true"
+		let optionalFalseString = "false"
+		let optionalTrueString2 = "TRUE"
+		let optionalFalseString2 = "FALSE"
+		
 		XCTAssertTrue(parse(&object.available,trueBool))
 		XCTAssertTrue(object.available)
 		XCTAssertTrue(parse(&object.available,falseBool))
@@ -143,6 +149,31 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(object.available)
 		XCTAssertTrue(parse(&object.available,falseString2))
 		XCTAssertFalse(object.available)
+		
+		XCTAssertTrue(parse(&object.available,NSString(string: trueString)))
+		XCTAssertTrue(object.available)
+		XCTAssertTrue(parse(&object.available,NSString(string: falseString)))
+		XCTAssertFalse(object.available)
+
+		XCTAssertTrue(parse(&object.available,NSString(string: trueString2)))
+		XCTAssertTrue(object.available)
+		XCTAssertTrue(parse(&object.available,NSString(string: falseString2)))
+		XCTAssertFalse(object.available)
+		
+		XCTAssertTrue(parse(&object.available,optionalTrueString))
+		XCTAssertTrue(object.available)
+		XCTAssertTrue(parse(&object.available,optionalFalseString))
+		XCTAssertFalse(object.available)
+		
+		XCTAssertTrue(parse(&object.available,optionalTrueString2))
+		XCTAssertTrue(object.available)
+		XCTAssertTrue(parse(&object.available,optionalFalseString2))
+		XCTAssertFalse(object.available)
+
+		XCTAssertTrue(parse(&object.availableString,true))
+		XCTAssertTrue(object.availableString=="true")
+		XCTAssertTrue(parse(&object.availableString,false))
+		XCTAssertTrue(object.availableString=="false")
 	}
 	
 	func testInt() {

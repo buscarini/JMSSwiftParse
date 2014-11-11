@@ -34,7 +34,6 @@
 		ACD310471A10E965001989F1 /* conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversions.swift; path = ../../Source/conversions.swift; sourceTree = "<group>"; };
 		ACD310481A10E965001989F1 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parse.swift; path = ../../Source/parse.swift; sourceTree = "<group>"; };
 		ACD310491A10E965001989F1 /* validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = validation.swift; path = ../../Source/validation.swift; sourceTree = "<group>"; };
-		ACD3107F1A10ED09001989F1 /* JMSSwiftParse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMSSwiftParse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */,
-				ACD3107F1A10ED09001989F1 /* JMSSwiftParse.swift */,
 				ACD310471A10E965001989F1 /* conversions.swift */,
 				ACD310481A10E965001989F1 /* parse.swift */,
 				ACD310491A10E965001989F1 /* validation.swift */,
