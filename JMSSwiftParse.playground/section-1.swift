@@ -1,64 +1,25 @@
 // Playground - noun: a place where people can play
 
 import UIKit
+import JMSSwiftParse
 
-
-func convert<T,U>(value : T?) -> U? {
-	if let converted = value as? U {
-		return converted
-	}
-	return nil
+class TestClass {
+	var name = ""
+	var email = ""
+	var requiredUrl : NSURL = NSURL(string : "blah")!
+	var optionalUrl : NSURL? = NSURL()
+	var available = false
+	var availableString = ""
+	var amount = 0
+	var date = NSDate()
 }
 
+let a = TestClass()
 
-func convert<T: BooleanLiteralConvertible>(value : String?) -> T? {
-	if let string = value {
-		let lowercase = string.lowercaseString
-		if lowercase=="true" {
-			return true
-		}
-		else if lowercase=="false" {
-			return false
-		}
-	}
-	return nil
-}
+let valid = parse(&a.name,"Pepe", longerThan(5) || shorterThan(20)) &&
+			parse(&a.email,"blah@pepe.com", isEmail) &&
+			parse(&a.available,"true") &&
+			parse(&a.requiredUrl,"http://www.google.com")
 
-func convert<T: BooleanLiteralConvertible>(value : String) -> T? {
-	let lowercase = value.lowercaseString
-	if lowercase=="true" {
-		return true
-	}
-	else if lowercase=="false" {
-		return false
-	}
-	
-	return nil
-}
-
-public func parse<T,U>(inout property: T, value: U?) -> Bool {
-	let converted : T? = convert(value)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	
-	return false
-}
-
-func parse<T: BooleanLiteralConvertible>(inout property: T, value: String?) -> T? {
-	let converted : T? = convert(value)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	
-	return false
-}
-	
-var available = false
-
-parse(&available,"true")
-
-available
+a
 
