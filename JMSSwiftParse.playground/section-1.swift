@@ -3,85 +3,11 @@
 import UIKit
 import JMSSwiftParse
 
-var str = "Hello, playground"
-
-let validUrlString = "http://www.google.com"
-let invalidUrlString = "blah"
-
-var url : NSURL?
-
-extension String {
-	func toDouble() -> Double? {
-		return NSString(string: self).doubleValue
-	}
-}
-
 func convert<T,U>(value : T?) -> U? {
 	if let converted = value as? U {
 		return converted
 	}
 	return nil
-}
-
-func convert(value : Int?) -> NSString? {
-	if let number = value {
-		return NSString(format: "%d", number)
-	}
-	return nil
-}
-
-func convert(value : Int?) -> String? {
-	if let number = value {
-		return String(format: "%d", number)
-	}
-	return nil
-}
-
-func convert(value : NSNumber?) -> NSString? {
-	if let number = value {
-		return number.stringValue
-	}
-	return nil
-}
-
-func convert(value : NSString?) -> NSNumber? {
-	if let string = value {
-		return NSNumber(double: string.doubleValue)
-	}
-	return nil
-}
-
-func convert(value : NSNumber?) -> String? {
-	if let number = value {
-		return number.stringValue
-	}
-	return nil
-}
-
-func convert(value : String?) -> NSNumber? {
-	if let string = value {
-		if let num = string.toDouble() {
-			return NSNumber(double: num)
-		}
-	}
-	return nil
-}
-
-func convert(value : String?) -> Bool? {
-	if let string = value {
-		let lowercase = string.lowercaseString
-		if lowercase=="true" {
-			return true
-		}
-		else if lowercase=="false" {
-			return false
-		}
-	}
-	return nil
-}
-
-func convert(value : NSString?) -> Bool? {
-	return convert(value as String?)
 }
 
 func convert(value : String?) -> NSURL? {
@@ -91,24 +17,7 @@ func convert(value : String?) -> NSURL? {
 	return nil
 }
 
-func convert(value : NSString?) -> NSURL? {
-	return convert(value as String?)
-}
-
-func convert(value : NSURL?) -> String? {
-	if let string = value {
-		return string.absoluteString
-	}
-	return nil
-}
-
-func convert(value : NSURL?) -> NSString? {
-	return convert(value) as NSString?
-}
-
-let convertedUrl: NSURL = convert(validUrlString)!
-
-public func testParse<T>(inout property: T, value: AnyObject?) -> Bool {
+public func testParse<T,U>(inout property: T, value: U?) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
 		return true
@@ -116,8 +25,31 @@ public func testParse<T>(inout property: T, value: AnyObject?) -> Bool {
 	return false
 }
 
+func reconvert<T,U>(property: T?, value: U?) -> T? {
+	let converted : T? = convert(value)
+	return converted
+}
+
+//func reconvert(property: String?, value: NSURL?) -> NSURL? {
+//	let converted : NSURL? = convert(value)
+//	return converted
+//}
+
+let validUrlString : String? = "http://www.google.com"
+let invalidUrlString = "blah"
+
+var url : NSURL? = NSURL(string: "http://www.google.com")
+
+var convertedUrl: NSURL? = convert(validUrlString)
+
+var strictUrl : NSURL = NSURL(string: "http://www.google.com")!
+
+reconvert(convertedUrl, validUrlString)
+
+reconvert(strictUrl, validUrlString)
+
+//testParse(&convertedUrl, validUrlString)
+
 testParse(&url, validUrlString)
 
-parse(&url,validUrlString)
-
-parse(&url,invalidUrlString)
+parse(&url, validUrlString)

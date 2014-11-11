@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Swift
 
 extension String {
 	func toDouble() -> Double? {
@@ -21,19 +22,19 @@ func convert<T,U>(value : T?) -> U? {
 	return nil
 }
 
-func convert(value : Int?) -> NSString? {
+func convert<T : IntegerType>(value : T?) -> String? {
 	if let number = value {
-		return NSString(format: "%d", number)
+		return number.description
 	}
 	return nil
 }
 
-func convert(value : Int?) -> String? {
-	if let number = value {
-		return String(format: "%d", number)
-	}
-	return nil
-}
+//func convert(value : Int?) -> String? {
+//	if let number = value {
+//		return String(format: "%d", number)
+//	}
+//	return nil
+//}
 
 func convert(value : NSNumber?) -> NSString? {
 	if let number = value {

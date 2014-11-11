@@ -13,7 +13,8 @@ import XCTest
 class TestClass {
 	var name = ""
 	var email = ""
-	var url : NSURL? = NSURL()
+	var requiredUrl : NSURL = NSURL(string : "blah")!
+	var optionalUrl : NSURL? = NSURL()
 	var available = false
 	var amount = 0
 	var date = NSDate()
@@ -100,11 +101,17 @@ class JMSSwiftParseTests: XCTestCase {
 		let validUrlString = "http://www.google.com"
 		let invalidUrlString = "blah"
 		
-		XCTAssertTrue(parse(&object.url,validUrlString))
-		XCTAssertTrue(object.url==validUrlString)
+		XCTAssertTrue(parse(&object.optionalUrl,validUrlString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==validUrlString)
 		
-		XCTAssertFalse(parse(&object.url,invalidUrlString))
-		XCTAssertFalse(object.url==invalidUrlString)
+		XCTAssertTrue(parse(&object.requiredUrl,validUrlString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==validUrlString)
+
+		XCTAssertTrue(parse(&object.optionalUrl,NSString(string: validUrlString)))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==validUrlString)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,NSString(string: validUrlString)))
+		XCTAssertTrue(object.requiredUrl.absoluteString==validUrlString)
 	}
 	
 	func testBool() {
@@ -184,7 +191,7 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertFalse(parse(&object.amount, negativeNumber, equal(4)))
 		XCTAssertFalse(object.amount==negativeNumber.integerValue)
 		
-		XCTAssertTrue(parse(&object.amount, negativeNumber, equal(-45)))
+		XCTAssertTrue(parse(&object.amount, negativeNumber, equal(-50)))
 		XCTAssertTrue(object.amount==negativeNumber.integerValue)
 		
 		XCTAssertTrue(parse(&object.amount, positiveNumber, !equal(40)))
