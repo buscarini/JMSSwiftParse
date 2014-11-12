@@ -8,17 +8,14 @@
 
 import Foundation
 
-/// MARK: Validators
-
-
-/// MARK: Size
-public func equal<T: Equatable>(min : T) -> (T) -> Bool {
-	return { $0==min }
+// MARK: Size
+public func equal<T: Equatable>(value : T) -> (T) -> Bool {
+	return { $0==value }
 }
 
-//public func different<T: Equatable>(min : T) -> (T) -> Bool {
-//	return { $0!=min }
-//}
+public func different<T: Equatable>(value : T) -> (T) -> Bool {
+	return { !($0==value) }
+}
 
 public func smallerThan<T: Comparable>(min : T) -> (T) -> Bool {
 	return { $0<min }
@@ -37,7 +34,7 @@ public func greaterThanOrEqual<T: Comparable>(min : T) -> (T) -> Bool {
 }
 
 
-/// MARK: Length
+// MARK: Length
 
 public func compareLength(length: Int, operation: (Int,Int) -> Bool ) -> (String) -> Bool {
 	return { operation($0.lengthOfBytesUsingEncoding(NSUTF8StringEncoding),length) }
@@ -63,25 +60,9 @@ public func shorterThanOrEqual(length: Int) -> (String) -> Bool {
 	return compareLength(length, <=)
 }
 
-public func longerThan(length: Int) -> (NSString) -> Bool {
-	return compareLength(length, >)
-}
-
-public func longerThanOrEqual(length: Int) -> (NSString) -> Bool {
-	return compareLength(length, >=)
-}
-
-public func shorterThan(length: Int) -> (NSString) -> Bool {
-	return compareLength(length, <)
-}
-
-public func shorterThanOrEqual(length: Int) -> (NSString) -> Bool {
-	return compareLength(length, <=)
-}
-
 /// MARK : Semantics
 
-public func isEmail(string: NSString) -> Bool {
+public func isEmail(string: String) -> Bool {
 	let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
 	let emailTestPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
 	if let predicate = emailTestPredicate {
@@ -90,11 +71,7 @@ public func isEmail(string: NSString) -> Bool {
 	return false
 }
 
-public func isEmail(string: String) -> Bool {
-	return isEmail(NSString(string: string))
-}
-
-/// MARK: Function operators
+// MARK: Function operators
 
 public func &&<T>(lhs: (T) -> Bool,rhs : (T) -> Bool) -> (T) -> Bool {
 	return {

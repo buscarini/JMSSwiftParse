@@ -9,35 +9,43 @@
 import Foundation
 import Swift
 
+public protocol Convertible {}
+
+extension Int : Convertible {}
+extension Bool : Convertible {}
+extension String : Convertible {}
+extension NSInteger : Convertible {}
+extension NSNumber : Convertible {}
+extension NSString : Convertible {}
+extension NSURL : Convertible {}
+
 extension String {
 	func toDouble() -> Double? {
 		return NSString(string: self).doubleValue
 	}
 }
 
-func convert<T,U>(value : T?) -> U? {
+func convert<T,U>(value : T) -> U? {
 	if let converted = value as? U {
 		return converted
 	}
 	return nil
 }
 
-/// MARK: Bool
+// MARK: Bool
 
-func convert<T: BooleanLiteralConvertible>(value : String?) -> T? {
-	if let string = value {
-		let lowercase = string.lowercaseString
-		if lowercase=="true" {
-			return true
-		}
-		else if lowercase=="false" {
-			return false
-		}
+func convert<T: BooleanLiteralConvertible>(string : String) -> T? {
+	let lowercase = string.lowercaseString
+	if lowercase=="true" {
+		return true
+	}
+	else if lowercase=="false" {
+		return false
 	}
 	return nil
 }
 
-func convert<T: BooleanLiteralConvertible>(value : T?) -> String? {
+func convert<T: BooleanLiteralConvertible>(value : T) -> String? {
 	if let boolValue = value as? Bool {
 		if boolValue {
 			return "true"
@@ -49,63 +57,61 @@ func convert<T: BooleanLiteralConvertible>(value : T?) -> String? {
 	return nil
 }
 
-func convert<T: BooleanLiteralConvertible>(value : NSString?) -> T? {
-	return convert(value as? String)
+func convert<T: BooleanLiteralConvertible>(value : NSString) -> T? {
+	return convert(value as String)
 }
 
-func convert<T: BooleanLiteralConvertible>(value : T?) -> NSString? {
+func convert<T: BooleanLiteralConvertible>(value : T) -> NSString? {
 	return convert(value)
 }
 
-func convert(value : NSNumber?) -> NSString? {
-	if let number = value {
-		return number.stringValue
+// MARK: NSNumber <-> String
+
+func convert(number : NSNumber) -> NSString? {
+	return number.stringValue
+}
+
+func convert(string : NSString) -> NSNumber? {
+	return NSNumber(double: string.doubleValue)
+}
+
+func convert(number : NSNumber) -> String? {
+	return number.stringValue
+}
+
+func convert(string : String) -> NSNumber? {
+	if let num = string.toDouble() {
+		return NSNumber(double: num)
 	}
 	return nil
 }
 
-func convert(value : NSString?) -> NSNumber? {
-	if let string = value {
-		return NSNumber(double: string.doubleValue)
-	}
-	return nil
+// MARK: String <-> NSURL
+
+
+func convert(string : String) -> NSURL? {
+	return NSURL(string: string)
 }
 
-func convert(value : NSNumber?) -> String? {
-	if let number = value {
-		return number.stringValue
-	}
-	return nil
+func convert(value : NSString) -> NSURL? {
+	return convert(value as String)
 }
 
-func convert(value : String?) -> NSNumber? {
-	if let string = value {
-		if let num = string.toDouble() {
-			return NSNumber(double: num)
-		}
-	}
-	return nil
+func convert(url : NSURL) -> String? {
+	return url.absoluteString
 }
 
-
-func convert(value : String?) -> NSURL? {
-	if let string = value {
-		return NSURL(string: string)
-	}
-	return nil
-}
-
-func convert(value : NSString?) -> NSURL? {
-	return convert(value as String?)
-}
-
-func convert(value : NSURL?) -> String? {
-	if let string = value {
-		return string.absoluteString
-	}
-	return nil
-}
-
-func convert(value : NSURL?) -> NSString? {
+func convert(value : NSURL) -> NSString? {
 	return convert(value) as NSString?
+}
+
+// MARK: Int <-> String
+
+func convert<T: IntegerType>(string : String) -> T? {
+	let oldString = NSString(string: string)
+	return oldString.integerValue as? T
+}
+
+func convert<T: IntegerType>(value : T) -> String? {
+	return value.description
 }
