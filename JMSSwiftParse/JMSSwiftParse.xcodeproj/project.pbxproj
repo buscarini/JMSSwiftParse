@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC0216CC1A11079F00746FB6 /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
-		AC0216CD1A11079F00746FB6 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
-		AC0216CE1A11079F00746FB6 /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
+		ACCB54A51A14C87100841F78 /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
+		ACCB54A61A14C87100841F78 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
+		ACCB54A71A14C87100841F78 /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
 		ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +34,7 @@
 		ACD310471A10E965001989F1 /* conversions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversions.swift; path = ../../Source/conversions.swift; sourceTree = "<group>"; };
 		ACD310481A10E965001989F1 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parse.swift; path = ../../Source/parse.swift; sourceTree = "<group>"; };
 		ACD310491A10E965001989F1 /* validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = validation.swift; path = ../../Source/validation.swift; sourceTree = "<group>"; };
+		ACED54671A13672D007029CF /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +81,7 @@
 				ACD310481A10E965001989F1 /* parse.swift */,
 				ACD310491A10E965001989F1 /* validation.swift */,
 				ACD310201A10E55B001989F1 /* Supporting Files */,
+				ACED54671A13672D007029CF /* tests.swift */,
 			);
 			path = JMSSwiftParse;
 			sourceTree = "<group>";
@@ -216,9 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC0216CC1A11079F00746FB6 /* conversions.swift in Sources */,
-				AC0216CD1A11079F00746FB6 /* parse.swift in Sources */,
-				AC0216CE1A11079F00746FB6 /* validation.swift in Sources */,
+				ACCB54A51A14C87100841F78 /* conversions.swift in Sources */,
+				ACCB54A61A14C87100841F78 /* parse.swift in Sources */,
+				ACCB54A71A14C87100841F78 /* validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,13 @@
 import Foundation
 import Swift
 
+extension String {
+	func toDouble() -> Double? {
+		return NSString(string: self).doubleValue
+	}
+}
+
+/*
 public protocol Convertible {}
 
 extension Int : Convertible {}
@@ -19,13 +26,7 @@ extension NSNumber : Convertible {}
 extension NSString : Convertible {}
 extension NSURL : Convertible {}
 
-extension String {
-	func toDouble() -> Double? {
-		return NSString(string: self).doubleValue
-	}
-}
-
-func convert<T,U>(value : T) -> U? {
+func convert<T: Convertible,U: Convertible>(value : T) -> U? {
 	if let converted = value as? U {
 		return converted
 	}
@@ -65,8 +66,10 @@ func convert<T: BooleanLiteralConvertible>(value : T) -> NSString? {
 	return convert(value)
 }
 
-// MARK: NSNumber <-> String
+*/
 
+// MARK: NSNumber <-> String
+/*
 func convert(number : NSNumber) -> NSString? {
 	return number.stringValue
 }
@@ -84,10 +87,10 @@ func convert(string : String) -> NSNumber? {
 		return NSNumber(double: num)
 	}
 	return nil
-}
+}*/
 
 // MARK: String <-> NSURL
-
+/*
 
 func convert(string : String) -> NSURL? {
 	return NSURL(string: string)
@@ -104,14 +107,14 @@ func convert(url : NSURL) -> String? {
 func convert(value : NSURL) -> NSString? {
 	return convert(value) as NSString?
 }
-
+*/
 // MARK: Int <-> String
 
-func convert<T: IntegerType>(string : String) -> T? {
-	let oldString = NSString(string: string)
-	return oldString.integerValue as? T
-}
-
-func convert<T: IntegerType>(value : T) -> String? {
-	return value.description
-}
+//func convert<T: IntegerType>(string : String) -> T? {
+//	let oldString = NSString(string: string)
+//	return oldString.integerValue as? T
+//}
+//
+//func convert<T: IntegerType>(value : T) -> String? {
+//	return value.description
+//}
