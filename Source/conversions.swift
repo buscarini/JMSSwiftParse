@@ -138,13 +138,22 @@ func convert(value : NSURL) -> NSString? {
 	return convert(value) as NSString?
 }
 
+// MARK: Int <-> NSNumber
+
+func convert(value : NSNumber) -> Int? {
+	return value.integerValue
+}
+
+func convert(value : Int) -> NSNumber? {
+	return NSNumber(integer: value)
+}
+
 // MARK: Int <-> String
 
-//func convert<T: IntegerType>(string : String) -> T? {
-//	let oldString = NSString(string: string)
-//	return oldString.integerValue as? T
-//}
-//
-//func convert<T: IntegerType>(value : T) -> String? {
-//	return value.description
-//}
+func convert(value : String) -> Int? {
+	return NSString(string: value).integerValue
+}
+
+func convert(value : Int) -> String? {
+	return value.description
+}

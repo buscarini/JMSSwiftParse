@@ -307,7 +307,7 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(object.optionalString=="false")
 	}
 	
-	/*
+	
 	func testInt() {
 		let positiveInt = 33
 		let negativeInt = -45
@@ -407,6 +407,6 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		XCTAssertTrue(parse(&object.amount, positiveIntNSString, !equal(40)))
 		XCTAssertTrue(object.amount==positiveInt)
-	}*/
+	}
     
 }
