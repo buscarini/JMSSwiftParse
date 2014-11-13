@@ -95,7 +95,97 @@ public func parse<T>(inout property: T?, value: T?) -> Bool {
 // MARK: Specific methods, required while they fix Swift bugs
 
 
-// MARK: NSURL <-> String
+// MARK: NSURL -> String
+
+public func parse(inout property: String?, value: NSURL,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSURL) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSURL,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSURL) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSURL?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSURL?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSURL?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSURL?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: String -> NSURL
 
 public func parse(inout property: NSURL?, value: String,validate: (NSURL)->Bool) -> Bool {
 	let converted : NSURL? = convert(value)
@@ -137,8 +227,58 @@ public func parse(inout property: NSURL, value: String) -> Bool {
 	return false
 }
 
-public func parse(inout property: String, value: NSURL,validate: (String)->Bool = { (val) in true }) -> Bool {
-	let converted : String? = convert(value)
+public func parse(inout property: NSURL?, value: String?,validate: (NSURL)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSURL? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSURL?, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : NSURL? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSURL, value: String?,validate: (NSURL)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSURL? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSURL, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : NSURL? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: Bool -> NSNumber
+
+public func parse(inout property: NSNumber?, value: Bool,validate: (NSNumber)->Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
 			property = valid
@@ -148,8 +288,8 @@ public func parse(inout property: String, value: NSURL,validate: (String)->Bool 
 	return false
 }
 
-public func parse(inout property: String, value: NSURL) -> Bool {
-	let converted : String? = convert(value)
+public func parse(inout property: NSNumber?, value: Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
 	if let valid = converted {
 		property = valid
 		return true
@@ -157,7 +297,75 @@ public func parse(inout property: String, value: NSURL) -> Bool {
 	return false
 }
 
-// MARK: Bool <-> NSNumber
+public func parse(inout property: NSNumber, value: Bool,validate: (NSNumber)->Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber?, value: Bool?,validate: (NSNumber)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber?, value: Bool?) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Bool?,validate: (NSNumber)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Bool?) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: NSNumber -> Bool
 
 public func parse(inout property: Bool?, value: NSNumber,validate: (Bool)->Bool) -> Bool {
 	let converted : Bool? = convert(value)
@@ -199,8 +407,59 @@ public func parse(inout property: Bool, value: NSNumber) -> Bool {
 	return false
 }
 
-public func parse(inout property: NSNumber, value: Bool,validate: (NSNumber)->Bool = { (val) in true }) -> Bool {
-	let converted : NSNumber? = convert(value)
+public func parse(inout property: Bool?, value: NSNumber?,validate: (Bool)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Bool?, value: NSNumber?) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Bool, value: NSNumber?,validate: (Bool)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Bool, value: NSNumber?) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+
+// MARK: Bool -> String
+
+public func parse(inout property: String?, value: Bool,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
 			property = valid
@@ -210,8 +469,8 @@ public func parse(inout property: NSNumber, value: Bool,validate: (NSNumber)->Bo
 	return false
 }
 
-public func parse(inout property: NSNumber, value: Bool) -> Bool {
-	let converted : NSNumber? = convert(value)
+public func parse(inout property: String?, value: Bool) -> Bool {
+	let converted : String? = convert(value)
 	if let valid = converted {
 		property = valid
 		return true
@@ -219,7 +478,75 @@ public func parse(inout property: NSNumber, value: Bool) -> Bool {
 	return false
 }
 
-// MARK: Bool <-> String
+public func parse(inout property: String, value: Bool,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: Bool?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: Bool?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Bool?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Bool?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: String -> Bool
 
 public func parse(inout property: Bool?, value: String,validate: (Bool)->Bool) -> Bool {
 	let converted : Bool? = convert(value)
@@ -261,10 +588,23 @@ public func parse(inout property: Bool, value: String) -> Bool {
 	return false
 }
 
-public func parse(inout property: String, value: Bool,validate: (String)->Bool) -> Bool {
-	let converted : String? = convert(value)
-	if let valid = converted {
-		if validate(valid) {
+public func parse(inout property: Bool?, value: String?,validate: (Bool)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Bool?, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
 			property = valid
 			return true
 		}
@@ -272,41 +612,28 @@ public func parse(inout property: String, value: Bool,validate: (String)->Bool) 
 	return false
 }
 
-public func parse(inout property: String, value: Bool) -> Bool {
-	let converted : String? = convert(value)
-	if let valid = converted {
-		property = valid
-		return true
+public func parse(inout property: Bool, value: String?,validate: (Bool)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
 	}
 	return false
 }
 
-/*
-// MARK: NSNumber <-> String
-
-public func parse(inout property: String, value: NSNumber,validate: (String)->Bool = { (val) in true }) -> Bool {
-	let converted : String? = convert(value)
-	if let valid = converted {
-		if validate(valid) {
+public func parse(inout property: Bool, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : Bool? = convert(validValue)
+		if let valid = converted {
 			property = valid
 			return true
 		}
 	}
 	return false
 }
-
-public func parse(inout property: NSNumber, value: String,validate: (NSNumber)->Bool = { (val) in true }) -> Bool {
-	let converted : NSNumber? = convert(value)
-	if let valid = converted {
-		if validate(valid) {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-*/
-
-
 
 

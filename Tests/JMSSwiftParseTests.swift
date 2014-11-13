@@ -228,15 +228,22 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(parse(&object.requiredBool,optionalFalseString2))
 		XCTAssertFalse(object.requiredBool)
 
-		XCTAssertTrue(parse(&object.availableString,true))
-		XCTAssertTrue(object.availableString=="true")
-		XCTAssertTrue(parse(&object.availableString,false))
-		XCTAssertTrue(object.availableString=="false")
+		XCTAssertTrue(parse(&object.requiredString,true))
+		XCTAssertTrue(object.requiredString=="true")
+		XCTAssertTrue(parse(&object.requiredString,false))
+		XCTAssertTrue(object.requiredString=="false")
+
+		XCTAssertTrue(parse(&object.optionalString,true))
+		XCTAssertTrue(object.optionalString=="true")
+		XCTAssertTrue(parse(&object.optionalString,false))
+		XCTAssertTrue(object.optionalString=="false")
 	}
 	
-	/*func testOptionalBool() {
+	func testOptionalBool() {
 		let trueBool = true
 		let falseBool = false
+		let optionalTrueBool : Bool? = true
+		let optionalFalseBool : Bool? = false
 		let trueNumber = NSNumber(bool: true)
 		let falseNumber = NSNumber(bool: false)
 		let trueString = "true"
@@ -289,11 +296,16 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(parse(&object.optionalBool,optionalFalseString2))
 		XCTAssertFalse(object.optionalBool!)
 
-		XCTAssertTrue(parse(&object.availableString,true))
-		XCTAssertTrue(object.availableString=="true")
-		XCTAssertTrue(parse(&object.availableString,false))
-		XCTAssertTrue(object.availableString=="false")
-	}*/
+		XCTAssertTrue(parse(&object.requiredString,optionalTrueBool))
+		XCTAssertTrue(object.requiredString=="true")
+		XCTAssertTrue(parse(&object.requiredString,optionalFalseBool))
+		XCTAssertTrue(object.requiredString=="false")
+
+		XCTAssertTrue(parse(&object.optionalString,optionalTrueBool))
+		XCTAssertTrue(object.optionalString=="true")
+		XCTAssertTrue(parse(&object.optionalString,optionalFalseBool))
+		XCTAssertTrue(object.optionalString=="false")
+	}
 	
 	/*
 	func testInt() {
