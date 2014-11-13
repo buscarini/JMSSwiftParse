@@ -19,7 +19,8 @@ class TestClass {
 	var requiredBool = false
 	var optionalBool : Bool?
 	var availableString = ""
-	var amount = 0
+	var requiredInt = 0
+	var optionalInt : Int? = 0
 	var date = NSDate()
 }
 
@@ -308,9 +309,11 @@ class JMSSwiftParseTests: XCTestCase {
 	}
 	
 	
-	func testInt() {
+	func testRequiredInt() {
 		let positiveInt = 33
 		let negativeInt = -45
+		let optionalPositiveInt : Int? = 33
+		let optionalNegativeInt : Int? = -45
 		let positiveNumber = NSNumber(int: 10)
 		let negativeNumber = NSNumber(int: -50)
 		let positiveIntString = "33"
@@ -320,93 +323,195 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		// Int
 		
-		XCTAssertTrue(parse(&object.amount, positiveInt))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveInt))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeInt))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeInt))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertFalse(parse(&object.amount, positiveInt, greaterThan(40)))
-		XCTAssertFalse(object.amount==positiveInt)
+		XCTAssertFalse(parse(&object.requiredInt, positiveInt, greaterThan(40)))
+		XCTAssertFalse(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveInt, smallerThanOrEqual(33)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveInt, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertFalse(parse(&object.amount, negativeInt, equal(4)))
-		XCTAssertFalse(object.amount==negativeInt)
+		XCTAssertFalse(parse(&object.requiredInt, negativeInt, equal(4)))
+		XCTAssertFalse(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeInt, equal(-45)))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeInt, equal(-45)))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveInt, !equal(40)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveInt, !equal(40)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
 		// NSNumber
 		
-		XCTAssertTrue(parse(&object.amount, positiveNumber))
-		XCTAssertTrue(object.amount==positiveNumber.integerValue)
+		XCTAssertTrue(parse(&object.requiredInt, positiveNumber))
+		XCTAssertTrue(object.requiredInt==positiveNumber.integerValue)
 		
-		XCTAssertTrue(parse(&object.amount, negativeNumber))
-		XCTAssertTrue(object.amount==negativeNumber.integerValue)
+		XCTAssertTrue(parse(&object.requiredInt, negativeNumber))
+		XCTAssertTrue(object.requiredInt==negativeNumber.integerValue)
 		
-		XCTAssertFalse(parse(&object.amount, positiveNumber, greaterThan(40)))
-		XCTAssertFalse(object.amount==positiveNumber.integerValue)
+		XCTAssertFalse(parse(&object.requiredInt, positiveNumber, greaterThan(40)))
+		XCTAssertFalse(object.requiredInt==positiveNumber.integerValue)
 		
-		XCTAssertTrue(parse(&object.amount, positiveNumber, smallerThanOrEqual(33)))
-		XCTAssertTrue(object.amount==positiveNumber.integerValue)
+		XCTAssertTrue(parse(&object.requiredInt, positiveNumber, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.requiredInt==positiveNumber.integerValue)
 		
-		XCTAssertFalse(parse(&object.amount, negativeNumber, equal(4)))
-		XCTAssertFalse(object.amount==negativeNumber.integerValue)
+		XCTAssertFalse(parse(&object.requiredInt, negativeNumber, equal(4)))
+		XCTAssertFalse(object.requiredInt==negativeNumber.integerValue)
 		
-		XCTAssertTrue(parse(&object.amount, negativeNumber, equal(-50)))
-		XCTAssertTrue(object.amount==negativeNumber.integerValue)
+		XCTAssertTrue(parse(&object.requiredInt, negativeNumber, equal(-50)))
+		XCTAssertTrue(object.requiredInt==negativeNumber.integerValue)
 		
-		XCTAssertTrue(parse(&object.amount, positiveNumber, !equal(40)))
-		XCTAssertTrue(object.amount==positiveNumber.integerValue)
+		XCTAssertTrue(parse(&object.requiredInt, positiveNumber, !equal(40)))
+		XCTAssertTrue(object.requiredInt==positiveNumber.integerValue)
 		
 		// String
-		XCTAssertTrue(parse(&object.amount, positiveIntString))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntString))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeIntString))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeIntString))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertFalse(parse(&object.amount, positiveIntString, greaterThan(40)))
-		XCTAssertFalse(object.amount==positiveInt)
+		XCTAssertFalse(parse(&object.requiredInt, positiveIntString, greaterThan(40)))
+		XCTAssertFalse(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveIntString, smallerThanOrEqual(33)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntString, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertFalse(parse(&object.amount, negativeIntString, equal(4)))
-		XCTAssertFalse(object.amount==negativeInt)
+		XCTAssertFalse(parse(&object.requiredInt, negativeIntString, equal(4)))
+		XCTAssertFalse(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeIntString, equal(-45)))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeIntString, equal(-45)))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveIntString, !equal(40)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntString, !equal(40)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
 		// NSString
-		XCTAssertTrue(parse(&object.amount, positiveIntNSString))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntNSString))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeIntNSString))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeIntNSString))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertFalse(parse(&object.amount, positiveIntNSString, greaterThan(40)))
-		XCTAssertFalse(object.amount==positiveInt)
+		XCTAssertFalse(parse(&object.requiredInt, positiveIntNSString, greaterThan(40)))
+		XCTAssertFalse(object.requiredInt==positiveInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveIntNSString, smallerThanOrEqual(33)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntNSString, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 		
-		XCTAssertFalse(parse(&object.amount, negativeIntNSString, equal(4)))
-		XCTAssertFalse(object.amount==negativeInt)
+		XCTAssertFalse(parse(&object.requiredInt, negativeIntNSString, equal(4)))
+		XCTAssertFalse(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, negativeIntNSString, equal(-45)))
-		XCTAssertTrue(object.amount==negativeInt)
+		XCTAssertTrue(parse(&object.requiredInt, negativeIntNSString, equal(-45)))
+		XCTAssertTrue(object.requiredInt==negativeInt)
 		
-		XCTAssertTrue(parse(&object.amount, positiveIntNSString, !equal(40)))
-		XCTAssertTrue(object.amount==positiveInt)
+		XCTAssertTrue(parse(&object.requiredInt, positiveIntNSString, !equal(40)))
+		XCTAssertTrue(object.requiredInt==positiveInt)
 	}
-    
+
+	func testOptionalInt() {
+		let positiveInt = 33
+		let negativeInt = -45
+		let optionalPositiveInt : Int? = 33
+		let optionalNegativeInt : Int? = -45
+		let positiveNumber = NSNumber(int: 10)
+		let negativeNumber = NSNumber(int: -50)
+		let positiveIntString = "33"
+		let negativeIntString = "-45"
+		let positiveIntNSString = NSString(string:"33")
+		let negativeIntNSString = NSString(string:"-45")
+		
+		// Int
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveInt))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeInt))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, positiveInt, greaterThan(40)))
+		XCTAssertFalse(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveInt, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, negativeInt, equal(4)))
+		XCTAssertFalse(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeInt, equal(-45)))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveInt, !equal(40)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		// NSNumber
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveNumber))
+		XCTAssertTrue(object.optionalInt==positiveNumber.integerValue)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeNumber))
+		XCTAssertTrue(object.optionalInt==negativeNumber.integerValue)
+		
+		XCTAssertFalse(parse(&object.optionalInt, positiveNumber, greaterThan(40)))
+		XCTAssertFalse(object.optionalInt==positiveNumber.integerValue)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveNumber, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.optionalInt==positiveNumber.integerValue)
+		
+		XCTAssertFalse(parse(&object.optionalInt, negativeNumber, equal(4)))
+		XCTAssertFalse(object.optionalInt==negativeNumber.integerValue)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeNumber, equal(-50)))
+		XCTAssertTrue(object.optionalInt==negativeNumber.integerValue)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveNumber, !equal(40)))
+		XCTAssertTrue(object.optionalInt==positiveNumber.integerValue)
+		
+		// String
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntString))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeIntString))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, positiveIntString, greaterThan(40)))
+		XCTAssertFalse(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntString, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, negativeIntString, equal(4)))
+		XCTAssertFalse(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeIntString, equal(-45)))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntString, !equal(40)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		// NSString
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntNSString))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeIntNSString))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, positiveIntNSString, greaterThan(40)))
+		XCTAssertFalse(object.optionalInt==positiveInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntNSString, smallerThanOrEqual(33)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+		
+		XCTAssertFalse(parse(&object.optionalInt, negativeIntNSString, equal(4)))
+		XCTAssertFalse(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, negativeIntNSString, equal(-45)))
+		XCTAssertTrue(object.optionalInt==negativeInt)
+		
+		XCTAssertTrue(parse(&object.optionalInt, positiveIntNSString, !equal(40)))
+		XCTAssertTrue(object.optionalInt==positiveInt)
+	}
 }
