@@ -154,7 +154,7 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertFalse(object.email==invalidEmail)
 	}
 	
-	/*
+	
 	func testUrl() {
 		let validUrlString = "http://www.google.com"
 		let invalidUrlString = "blah"
@@ -171,6 +171,7 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(parse(&object.requiredUrl,NSString(string: validUrlString)))
 		XCTAssertTrue(object.requiredUrl.absoluteString==validUrlString)
 	}
+	
 	
 	func testRequiredBool() {
 		let trueBool = true
@@ -294,6 +295,7 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(object.availableString=="false")
 	}*/
 	
+	/*
 	func testInt() {
 		let positiveInt = 33
 		let negativeInt = -45

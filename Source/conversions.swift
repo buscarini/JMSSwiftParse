@@ -89,8 +89,38 @@ func convert(string : String) -> NSNumber? {
 	return nil
 }*/
 
+// MARK: Bool <-> NSNumber
+
+func convert(value : NSNumber) -> Bool? {
+	return value.boolValue
+}
+
+func convert(value : Bool) -> NSNumber? {
+	return NSNumber(bool: value)
+}
+
+// MARK: Bool <-> String
+
+func convert(value : String) -> Bool? {
+	let lowercase = value.lowercaseString
+	if lowercase=="true" {
+		return true
+	}
+	else if lowercase=="false" {
+		return false
+	}
+	return nil
+}
+
+func convert(value : Bool) -> String? {
+	if value {
+		return "true"
+	}
+	return "false"
+}
+
 // MARK: String <-> NSURL
-/*
+
 
 func convert(string : String) -> NSURL? {
 	return NSURL(string: string)
@@ -107,7 +137,7 @@ func convert(url : NSURL) -> String? {
 func convert(value : NSURL) -> NSString? {
 	return convert(value) as NSString?
 }
-*/
+
 // MARK: Int <-> String
 
 //func convert<T: IntegerType>(string : String) -> T? {
