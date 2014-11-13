@@ -89,6 +89,7 @@ func convert(string : String) -> NSNumber? {
 	return nil
 }*/
 
+
 // MARK: Bool <-> NSNumber
 
 func convert(value : NSNumber) -> Bool? {

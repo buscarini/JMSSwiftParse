@@ -37,6 +37,12 @@ class JMSSwiftParseTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+
+	func testNull() {
+		XCTAssertFalse(parse(&object.requiredString,NSNull()))
+		XCTAssertTrue(parse(&object.optionalBool,NSNull()))
+		XCTAssertTrue(object.optionalBool==nil)
+	}
     
 	func testRequiredString() {
 		let name = "Pepe"
@@ -158,7 +164,12 @@ class JMSSwiftParseTests: XCTestCase {
 	
 	func testUrl() {
 		let validUrlString = "http://www.google.com"
+		let validOptionalUrlString : String? = "http://www.google.com"
+		let validOptionalUrlNSString : NSString? = NSString(string: "http://www.google.com")
 		let invalidUrlString = "blah"
+		
+		XCTAssertFalse(parse(&object.optionalUrl,nil))
+		XCTAssertFalse(parse(&object.requiredUrl,nil))
 		
 		XCTAssertTrue(parse(&object.optionalUrl,validUrlString))
 		XCTAssertTrue(object.optionalUrl?.absoluteString==validUrlString)
@@ -171,8 +182,31 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		XCTAssertTrue(parse(&object.requiredUrl,NSString(string: validUrlString)))
 		XCTAssertTrue(object.requiredUrl.absoluteString==validUrlString)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,validOptionalUrlString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==validOptionalUrlString)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,validOptionalUrlString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==validOptionalUrlString)
+
+		XCTAssertTrue(parse(&object.optionalUrl,validOptionalUrlNSString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==validOptionalUrlNSString)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,validOptionalUrlNSString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==validOptionalUrlNSString)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,invalidUrlString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==invalidUrlString)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,invalidUrlString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==invalidUrlString)
+
+		XCTAssertTrue(parse(&object.optionalUrl,NSString(string: invalidUrlString)))
+		XCTAssertTrue(object.optionalUrl?.absoluteString==invalidUrlString)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,NSString(string: invalidUrlString)))
+		XCTAssertTrue(object.requiredUrl.absoluteString==invalidUrlString)
 	}
-	
 	
 	func testRequiredBool() {
 		let trueBool = true
@@ -188,7 +222,7 @@ class JMSSwiftParseTests: XCTestCase {
 		let optionalFalseString = "false"
 		let optionalTrueString2 = "TRUE"
 		let optionalFalseString2 = "FALSE"
-		
+				
 		XCTAssertTrue(parse(&object.requiredBool,trueBool))
 		XCTAssertTrue(object.requiredBool)
 		XCTAssertTrue(parse(&object.requiredBool,falseBool))

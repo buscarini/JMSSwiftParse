@@ -55,6 +55,15 @@ public func parse<T : Convertible,U: Convertible>(inout property: T?, value: U?,
 	return false
 }*/
 
+public func parse<T>(inout property: T, value: NSNull) -> Bool {
+	return false
+}
+
+public func parse<T>(inout property: T?, value: NSNull) -> Bool {
+	property = nil
+	return true
+}
+
 public func parse<T>(inout property: T, value: T?,validate: (T)->Bool) -> Bool {
 	if let valid = value {
 		if validate(valid) {
