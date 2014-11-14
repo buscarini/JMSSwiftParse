@@ -1007,3 +1007,192 @@ public func parse(inout property: Int, value: String?) -> Bool {
 
 
 
+
+
+
+
+
+// MARK: NSDate -> String
+
+public func parse(inout property: String?, value: NSDate,format: String,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value,format)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSDate,format: String) -> Bool {
+	let converted : String? = convert(value,format)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSDate,format: String,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value,format)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSDate,format: String) -> Bool {
+	let converted : String? = convert(value,format)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSDate?,format: String,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue,format)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: NSDate?,format: String) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue,format)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSDate?,format: String, validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue,format)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: NSDate?,format: String) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue,format)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: String -> NSDate
+
+public func parse(inout property: NSDate?, value: String,format: String,validate: (NSDate)->Bool) -> Bool {
+	let converted : NSDate? = convert(value,format)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSDate?, value: String,format: String) -> Bool {
+	let converted : NSDate? = convert(value,format)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSDate, value: String,format: String,validate: (NSDate)->Bool) -> Bool {
+	let converted : NSDate? = convert(value,format)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSDate, value: String,format: String) -> Bool {
+	let converted : NSDate? = convert(value,format)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSDate?, value: String?,format: String,validate: (NSDate)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSDate? = convert(validValue,format)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSDate?, value: String?,format: String) -> Bool {
+	if let validValue = value {
+		let converted : NSDate? = convert(validValue,format)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSDate, value: String?,format: String,validate: (NSDate)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSDate? = convert(validValue,format)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSDate, value: String?,format: String) -> Bool {
+	if let validValue = value {
+		let converted : NSDate? = convert(validValue,format)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+
+
+
+

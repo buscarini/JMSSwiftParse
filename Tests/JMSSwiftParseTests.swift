@@ -548,4 +548,36 @@ class JMSSwiftParseTests: XCTestCase {
 		XCTAssertTrue(parse(&object.optionalInt, positiveIntNSString, !equal(40)))
 		XCTAssertTrue(object.optionalInt==positiveInt)
 	}
+	
+	func testDate() {
+		var date = NSDate()
+		let dateString = "24:01:2012 11:55:58"
+		let dateFormat = "dd:MM:yyyy HH:mm:ss"
+		var parsedString = ""
+		
+		XCTAssertTrue(parse(&date, dateString,dateFormat))
+
+		let gregorian = NSCalendar(calendarIdentifier: NSGregorianCalendar)
+		let dateComponents = gregorian?.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+		XCTAssertNotNil(dateComponents)
+		XCTAssertTrue(dateComponents?.day==24)
+		XCTAssertTrue(dateComponents?.month==1)
+		XCTAssertTrue(dateComponents?.year==2012)
+		XCTAssertTrue(dateComponents?.hour==11)
+		XCTAssertTrue(dateComponents?.minute==55)
+		XCTAssertTrue(dateComponents?.second==58)
+		
+		XCTAssertTrue(parse(&parsedString,date,dateFormat))
+		XCTAssertTrue(dateString==parsedString)
+		
+		self.measureBlock {
+			for i in 0...1000 {
+				parse(&date, dateString,dateFormat)
+				parse(&parsedString,date,dateFormat)
+			}
+		}
+	}
+	
 }
+
+

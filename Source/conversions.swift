@@ -158,3 +158,40 @@ func convert(value : String) -> Int? {
 func convert(value : Int) -> String? {
 	return value.description
 }
+
+
+// MARK: NSDate <-> String
+
+var cache = NSCache()
+
+func cachedDateFormatter(format: String) -> NSDateFormatter {
+	let cachedFormatter = cache.objectForKey(format) as? NSDateFormatter
+	
+	var dateFormatter: NSDateFormatter = NSDateFormatter()
+	if (cachedFormatter != nil) {
+		dateFormatter = cachedFormatter!
+	}
+	else {
+		dateFormatter.dateFormat = format
+		cache.setObject(dateFormatter, forKey: format)
+	}
+	
+	return dateFormatter
+}
+
+func convert(value : String,format: String) -> NSDate? {
+	
+	let dateFormatter = cachedDateFormatter(format)
+	// TODO: Optimize this
+//	let dateFormatter = NSDateFormatter()
+//	dateFormatter.dateFormat = format
+	return dateFormatter.dateFromString(value)
+}
+
+func convert(value : NSDate,format: String) -> String? {
+	// TODO: Optimize this
+	let dateFormatter = cachedDateFormatter(format)
+	
+	return dateFormatter.stringFromDate(value)
+}
+
