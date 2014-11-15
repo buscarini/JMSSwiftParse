@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ACCB54A51A14C87100841F78 /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
-		ACCB54A61A14C87100841F78 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
-		ACCB54A71A14C87100841F78 /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
+		AC5993861A173E2F00FA59CD /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
+		AC5993871A173E2F00FA59CD /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
+		AC5993881A173E2F00FA59CD /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
 		ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */; };
 /* End PBXBuildFile section */
@@ -218,9 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACCB54A51A14C87100841F78 /* conversions.swift in Sources */,
-				ACCB54A61A14C87100841F78 /* parse.swift in Sources */,
-				ACCB54A71A14C87100841F78 /* validation.swift in Sources */,
+				AC5993861A173E2F00FA59CD /* conversions.swift in Sources */,
+				AC5993871A173E2F00FA59CD /* parse.swift in Sources */,
+				AC5993881A173E2F00FA59CD /* validation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

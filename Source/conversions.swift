@@ -167,16 +167,15 @@ var cache = NSCache()
 func cachedDateFormatter(format: String) -> NSDateFormatter {
 	let cachedFormatter = cache.objectForKey(format) as? NSDateFormatter
 	
-	var dateFormatter: NSDateFormatter = NSDateFormatter()
-	if (cachedFormatter != nil) {
-		dateFormatter = cachedFormatter!
+	if let dateFormatter = cachedFormatter {
+		return dateFormatter
 	}
 	else {
+		let dateFormatter = NSDateFormatter()
 		dateFormatter.dateFormat = format
 		cache.setObject(dateFormatter, forKey: format)
+		return dateFormatter
 	}
-	
-	return dateFormatter
 }
 
 func convert(value : String,format: String) -> NSDate? {
