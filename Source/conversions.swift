@@ -89,7 +89,6 @@ func convert(string : String) -> NSNumber? {
 	return nil
 }*/
 
-
 // MARK: Bool <-> NSNumber
 
 func convert(value : NSNumber) -> Bool? {
@@ -194,3 +193,16 @@ func convert(value : NSDate,format: String) -> String? {
 	return dateFormatter.stringFromDate(value)
 }
 
+
+// MARK: AnyObject
+
+func convert<T>(value: AnyObject) -> T? {
+	switch value {
+	case let intValue as Int:
+		return convert(intValue)
+	case let stringValue as String:
+		return convert(stringValue)
+	default:
+		return nil
+	}
+}

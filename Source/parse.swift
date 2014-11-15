@@ -55,6 +55,98 @@ public func parse<T : Convertible,U: Convertible>(inout property: T?, value: U?,
 	return false
 }*/
 
+// MARK: T <-> AnyObject
+
+public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject,validate: (T)->Bool) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject) -> Bool {
+	let converted : T? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject?,validate: (T)->Bool) -> Bool {
+	if let validValue : AnyObject = value {
+		let converted : T? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject?) -> Bool {
+	if let validValue : AnyObject = value {
+		let converted : T? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject?,validate: (T)->Bool) -> Bool {
+	if let validValue : AnyObject = value {
+		let converted : T? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
+	if let validValue : AnyObject = value {
+		let converted : T? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: T <- NSNull
+
 public func parse<T>(inout property: T, value: NSNull) -> Bool {
 	return false
 }
@@ -63,6 +155,8 @@ public func parse<T>(inout property: T?, value: NSNull) -> Bool {
 	property = nil
 	return true
 }
+
+// MARK: T <-> T
 
 public func parse<T>(inout property: T, value: T?,validate: (T)->Bool) -> Bool {
 	if let valid = value {

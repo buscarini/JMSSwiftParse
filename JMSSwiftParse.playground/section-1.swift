@@ -27,13 +27,18 @@ a
 let jsonString = "{ \"name\" : \"Antonio\",\"email\" : \"antonio@gmail.com\",\"available\" : false }"
 
 var error : NSError?
-if let dic = NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: .MutableLeaves, error: &error) as? NSDictionary {
-	let jsonValid = parse(&a.name,dic["name"], longerThan(5) || shorterThan(20)) &&
-		parse(&a.email,"blah@pepe.com", isEmail) &&
-		parse(&a.available,"true") &&
+let dic: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: .MutableLeaves, error: &error)
+
+if let validDic = dic as? NSDictionary {
+	let jsonValid = parse(&a.name,validDic["name"], longerThan(5) || shorterThan(20)) &&
+		parse(&a.email,validDic["email"], isEmail) &&
+		parse(&a.available,validDic["available"]) &&
 		parse(&a.requiredUrl,"http://www.google.com")
-	
+}
+else {
+	NSLog("No dictionary")
 }
 
 
+a
 
