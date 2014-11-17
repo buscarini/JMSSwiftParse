@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Swift
 
 extension String {
 	func toDouble() -> Double? {
@@ -170,10 +169,12 @@ func convert(value : Int) -> String? {
 
 // MARK: NSDate <-> String
 
-var cache = NSCache()
+var cache = Cache()
+
+//var cache = NSCache()
 
 func cachedDateFormatter(format: String) -> NSDateFormatter {
-	let cachedFormatter = cache.objectForKey(format) as? NSDateFormatter
+	let cachedFormatter = cache.objectForKey(format)
 	
 	if let dateFormatter = cachedFormatter {
 		return dateFormatter
@@ -199,7 +200,17 @@ func convert(value : NSDate,format: String) -> String? {
 
 // MARK: AnyObject
 
-func convert<T>(value: AnyObject) -> T? {
+/*func convert<T>(value: AnyObject?) -> T? {
+	switch value {
+	case let downcasted as T:
+		return convert(downcasted)
+	default:
+		return nil
+	}
+}*/
+
+
+/*func convert<T>(value: AnyObject) -> T? {
 	switch value {
 	case let downcasted as Bool:
 		return convert(downcasted)
@@ -222,4 +233,4 @@ func convert<T>(value: AnyObject) -> T? {
 	default:
 		return nil
 	}
-}
+}*/

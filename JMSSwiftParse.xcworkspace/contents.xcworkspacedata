@@ -11,6 +11,9 @@
       location = "group:TestGenerics.playground">
    </FileRef>
    <FileRef
+      location = "group:TestAnyObject.playground">
+   </FileRef>
+   <FileRef
       location = "group:iOS Example/iOS Example.xcodeproj">
    </FileRef>
    <FileRef

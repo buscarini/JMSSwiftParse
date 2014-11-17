@@ -77,20 +77,20 @@ public func isEmail(string: String) -> Bool {
 //	return { operation($0,date) }
 //}
 
-public func beforeThan(date: NSDate) -> (NSDate) -> Bool {
+public func earlierThan(date: NSDate) -> (NSDate) -> Bool {
 	return { $0.compare(date)==NSComparisonResult.OrderedAscending }
 }
 
-public func beforeThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
+public func earlierThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
 	return { let result = $0.compare(date)
 		return result==NSComparisonResult.OrderedAscending || result==NSComparisonResult.OrderedSame }
 }
 
-public func afterThan(date: NSDate) -> (NSDate) -> Bool {
+public func laterThan(date: NSDate) -> (NSDate) -> Bool {
 	return { $0.compare(date)==NSComparisonResult.OrderedDescending }
 }
 
-public func afterThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
+public func laterThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
 	return { let result = $0.compare(date)
 		return result==NSComparisonResult.OrderedDescending || result==NSComparisonResult.OrderedSame }
 }

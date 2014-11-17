@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 José Manuel Sánchez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import JMSSwiftParse
 import XCTest
 
@@ -554,8 +554,9 @@ class JMSSwiftParseTests: XCTestCase {
 		let dateString = "24:01:2012 11:55:58"
 		let dateFormat = "dd:MM:yyyy HH:mm:ss"
 		var parsedString = ""
-		
-		XCTAssertTrue(parse(&date, dateString,dateFormat))
+
+		XCTAssertTrue(parse(&date, dateString,dateFormat,earlierThan(NSDate.today())))
+		XCTAssertTrue(parse(&date, dateString,dateFormat,laterThan(NSDate(timeIntervalSince1970: 0))))
 
 		let gregorian = NSCalendar(calendarIdentifier: NSGregorianCalendar)
 		let dateComponents = gregorian?.components(.CalendarUnitDay | .CalendarUnitMonth | .CalendarUnitYear | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
@@ -578,13 +579,13 @@ class JMSSwiftParseTests: XCTestCase {
 		}
 	}
 	
-	func testAnyObject() {
-		let rawName: AnyObject? = "Antonio"
-		var name = ""
-		
-		XCTAssertTrue(parse(&name, rawName))
-		
-	}
+//	func testAnyObject() {
+//		let rawName: AnyObject? = "Antonio"
+//		var name = ""
+//		
+//		XCTAssertTrue(parse(&name, rawName))
+//		
+//	}
 }
 
 

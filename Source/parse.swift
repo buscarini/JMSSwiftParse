@@ -60,6 +60,7 @@ public func parse<T,U>(inout property: T?, value: U?,validate: (T)->Bool = { (va
 
 // MARK: T <-> AnyObject
 
+/*
 public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
@@ -147,6 +148,7 @@ public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
 	}
 	return false
 }
+*/
 
 // MARK: T <- NSNull
 
