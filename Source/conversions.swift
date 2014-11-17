@@ -14,6 +14,10 @@ extension String {
 	}
 }
 
+func convert<T,U>(value : T) -> U? {
+	return value as? U
+}
+
 /*
 func convert<T,U>(value : T) -> U? {
 	if let converted = value as? U {
@@ -209,6 +213,44 @@ func convert(value : NSDate,format: String) -> String? {
 	}
 }*/
 
+//func downcast<T>(inout property: T,value: AnyObject) -> Bool {
+//	switch value {
+//		case let downcasted as Bool:
+//			property = convert(downcasted)
+//			return true
+//		case let downcasted as Int:
+//			property = convert(downcasted)
+//			return true
+//		case let downcasted as Float:
+//			property = convert(downcasted)
+//			return true
+//		default:
+//			return false
+//	}
+//}
+
+//func downcast<T>(property: T,value: AnyObject?) -> T? {
+//	switch value {
+//	case let downcasted as T:
+//		return downcasted
+//	default:
+//		return nil
+//	}
+//}
+
+
+func downcast<T>(inout property: T?,value: AnyObject?) -> Bool {
+	switch value {
+	case let downcasted as Bool:
+		property = convert(downcasted)
+		return true
+	case let downcasted as String:
+		property = convert(downcasted)
+		return true
+	default:
+		return false
+	}
+}
 
 /*func convert<T>(value: AnyObject) -> T? {
 	switch value {

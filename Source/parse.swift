@@ -60,6 +60,102 @@ public func parse<T,U>(inout property: T?, value: U?,validate: (T)->Bool = { (va
 
 // MARK: T <-> AnyObject
 
+public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
+	var converted : T?
+	downcast(&converted, value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject) -> Bool {
+	var converted : T?
+	downcast(&converted, value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject,validate: (T)->Bool) -> Bool {
+	var converted : T?
+	downcast(&converted, value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject) -> Bool {
+	var converted : T?
+	downcast(&converted, value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject?,validate: (T)->Bool) -> Bool {
+	if let validValue : AnyObject = value {
+		var converted : T?
+		downcast(&converted, value)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T?, value: AnyObject?) -> Bool {
+	if let validValue : AnyObject = value {
+		var converted : T?
+		downcast(&converted, value)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject?,validate: (T)->Bool) -> Bool {
+	if let validValue : AnyObject = value {
+		var converted : T?
+		downcast(&converted, value)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
+	if let validValue : AnyObject = value {
+		var converted : T?
+		downcast(&converted, value)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
 /*
 public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
 	let converted : T? = convert(value)

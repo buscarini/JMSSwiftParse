@@ -579,13 +579,13 @@ class JMSSwiftParseTests: XCTestCase {
 		}
 	}
 	
-//	func testAnyObject() {
-//		let rawName: AnyObject? = "Antonio"
-//		var name = ""
-//		
-//		XCTAssertTrue(parse(&name, rawName))
-//		
-//	}
+	func testAnyObject() {
+		let rawName: AnyObject? = "Antonio"
+		var name = ""
+		
+		XCTAssertTrue(parse(&name, rawName))
+		
+	}
 }
 
 
