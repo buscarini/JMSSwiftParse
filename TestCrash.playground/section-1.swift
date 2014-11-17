@@ -9,11 +9,13 @@ extension NSNumber : Convertible {}
 extension NSValue : Convertible {}
 extension String : Convertible {}
 
-public func parse<T : Convertible,U : Convertible>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
-	return false
-}
+//public func parse<T : Convertible,U : Convertible>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
+//	return false
+//}
 
 var value = "blah"
 var property = "Blih"
 
-parse(&property,value)
+//parse(&property,value)
+
+

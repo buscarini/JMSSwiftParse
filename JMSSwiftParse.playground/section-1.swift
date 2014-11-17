@@ -30,10 +30,16 @@ var error : NSError?
 let dic: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: .MutableLeaves, error: &error)
 
 if let validDic = dic as? NSDictionary {
-	let jsonValid = parse(&a.name,validDic["name"], longerThan(5) || shorterThan(20)) &&
-		parse(&a.email,validDic["email"], isEmail) &&
-		parse(&a.available,validDic["available"]) &&
-		parse(&a.requiredUrl,"http://www.google.com")
+	
+	let name: AnyObject? = validDic["name"]
+	
+	parse(&a.name,validDic["name"])
+//	parse(&a.name,name, longerThan(5) && shorterThan(20))
+	
+//	let jsonValid = parse(&a.name,validDic["name"], longerThan(5) || shorterThan(20)) &&
+//		parse(&a.email,validDic["email"], isEmail) &&
+//		parse(&a.available,validDic["available"]) &&
+//		parse(&a.requiredUrl,"http://www.google.com")
 }
 else {
 	NSLog("No dictionary")

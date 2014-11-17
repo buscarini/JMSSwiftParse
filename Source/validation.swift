@@ -60,7 +60,7 @@ public func shorterThanOrEqual(length: Int) -> (String) -> Bool {
 	return compareLength(length, <=)
 }
 
-/// MARK : Semantics
+/// MARK : Email
 
 public func isEmail(string: String) -> Bool {
 	let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
@@ -69,6 +69,30 @@ public func isEmail(string: String) -> Bool {
 		return predicate.evaluateWithObject(string)
 	}
 	return false
+}
+
+/// MARK : Dates
+
+//public func compareDate(date: NSDate,operation: (NSDate,NSDate) -> Bool) -> (NSDate) -> Bool {
+//	return { operation($0,date) }
+//}
+
+public func beforeThan(date: NSDate) -> (NSDate) -> Bool {
+	return { $0.compare(date)==NSComparisonResult.OrderedAscending }
+}
+
+public func beforeThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
+	return { let result = $0.compare(date)
+		return result==NSComparisonResult.OrderedAscending || result==NSComparisonResult.OrderedSame }
+}
+
+public func afterThan(date: NSDate) -> (NSDate) -> Bool {
+	return { $0.compare(date)==NSComparisonResult.OrderedDescending }
+}
+
+public func afterThanOrEqual(date: NSDate) -> (NSDate) -> Bool {
+	return { let result = $0.compare(date)
+		return result==NSComparisonResult.OrderedDescending || result==NSComparisonResult.OrderedSame }
 }
 
 // MARK: Function operators

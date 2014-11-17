@@ -10,7 +10,8 @@ import Foundation
 
 // MARK: Generic Parsers
 
-/*public func parse<T : Convertible,U : Convertible>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
+/*
+public func parse<T,U>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
@@ -21,7 +22,7 @@ import Foundation
 	return false
 }
 
-public func parse<T : Convertible,U: Convertible>(inout property: T?, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T,U>(inout property: T?, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
@@ -32,19 +33,21 @@ public func parse<T : Convertible,U: Convertible>(inout property: T?, value: U,v
 	return false
 }
 
-public func parse<T : Convertible,U: Convertible>(inout property: T, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T,U>(inout property: T, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
 	if let validValue : U = value {
 		return parse(&property, validValue, validate: validate)
 	}
 	return false
 }
 
-public func parse<T : Convertible,U: Convertible>(inout property: T?, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T,U>(inout property: T?, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
 	if let validValue : U = value {
 		return parse(&property, validValue, validate: validate)
 	}
 	return false
-}*/
+}
+*/
+
 
 
 /*public func parse<T>(inout property: T, value: T,validate: (T)->Bool = { (val) in true }) -> Bool {
@@ -1285,8 +1288,5 @@ public func parse(inout property: NSDate, value: String?,format: String) -> Bool
 	}
 	return false
 }
-
-
-
 
 

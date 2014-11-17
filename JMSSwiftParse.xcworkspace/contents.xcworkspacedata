@@ -5,7 +5,10 @@
       location = "group:JMSSwiftParse.playground">
    </FileRef>
    <FileRef
-      location = "group:Development.playground">
+      location = "group:TestCrash.playground">
+   </FileRef>
+   <FileRef
+      location = "group:TestGenerics.playground">
    </FileRef>
    <FileRef
       location = "group:iOS Example/iOS Example.xcodeproj">

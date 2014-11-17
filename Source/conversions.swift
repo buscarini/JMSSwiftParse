@@ -16,6 +16,15 @@ extension String {
 }
 
 /*
+func convert<T,U>(value : T) -> U? {
+	if let converted = value as? U {
+		return converted
+	}
+	return nil
+}
+*/
+
+/*
 public protocol Convertible {}
 
 extension Int : Convertible {}
@@ -178,18 +187,12 @@ func cachedDateFormatter(format: String) -> NSDateFormatter {
 }
 
 func convert(value : String,format: String) -> NSDate? {
-	
 	let dateFormatter = cachedDateFormatter(format)
-	// TODO: Optimize this
-//	let dateFormatter = NSDateFormatter()
-//	dateFormatter.dateFormat = format
 	return dateFormatter.dateFromString(value)
 }
 
 func convert(value : NSDate,format: String) -> String? {
-	// TODO: Optimize this
 	let dateFormatter = cachedDateFormatter(format)
-	
 	return dateFormatter.stringFromDate(value)
 }
 
@@ -198,10 +201,24 @@ func convert(value : NSDate,format: String) -> String? {
 
 func convert<T>(value: AnyObject) -> T? {
 	switch value {
-	case let intValue as Int:
-		return convert(intValue)
-	case let stringValue as String:
-		return convert(stringValue)
+	case let downcasted as Bool:
+		return convert(downcasted)
+	case let downcasted as Int:
+		return convert(downcasted)
+	case let downcasted as Float:
+		return convert(downcasted)
+	case let downcasted as Double:
+		return convert(downcasted)
+	case let downcasted as String:
+		return convert(downcasted)
+	case let downcasted as NSString:
+		return convert(downcasted)
+	case let downcasted as NSDate:
+		return convert(downcasted)
+	case let downcasted as NSNumber:
+		return convert(downcasted)
+	case let downcasted as NSNull:
+		return convert(downcasted)
 	default:
 		return nil
 	}

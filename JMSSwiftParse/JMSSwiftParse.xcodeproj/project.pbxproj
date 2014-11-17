@@ -10,6 +10,7 @@
 		AC5993861A173E2F00FA59CD /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
 		AC5993871A173E2F00FA59CD /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
 		AC5993881A173E2F00FA59CD /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
+		ACB11E9F1A19E10E004884F4 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11E9E1A19E10E004884F4 /* utils.swift */; };
 		ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ACB11E9E1A19E10E004884F4 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = ../../Source/utils.swift; sourceTree = "<group>"; };
 		ACD3101D1A10E55B001989F1 /* JMSSwiftParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMSSwiftParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD310211A10E55B001989F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACD310281A10E55B001989F1 /* JMSSwiftParseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMSSwiftParseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				ACD310491A10E965001989F1 /* validation.swift */,
 				ACD310201A10E55B001989F1 /* Supporting Files */,
 				ACED54671A13672D007029CF /* tests.swift */,
+				ACB11E9E1A19E10E004884F4 /* utils.swift */,
 			);
 			path = JMSSwiftParse;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				AC5993861A173E2F00FA59CD /* conversions.swift in Sources */,
 				AC5993871A173E2F00FA59CD /* parse.swift in Sources */,
 				AC5993881A173E2F00FA59CD /* validation.swift in Sources */,
+				ACB11E9F1A19E10E004884F4 /* utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
