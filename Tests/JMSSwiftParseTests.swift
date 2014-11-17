@@ -168,8 +168,8 @@ class JMSSwiftParseTests: XCTestCase {
 		let validOptionalUrlNSString : NSString? = NSString(string: "http://www.google.com")
 		let invalidUrlString = "blah"
 		
-		XCTAssertFalse(parse(&object.optionalUrl,nil))
-		XCTAssertFalse(parse(&object.requiredUrl,nil))
+//		XCTAssertFalse(parse(&object.optionalUrl,nil))
+//		XCTAssertFalse(parse(&object.requiredUrl,nil))
 		
 		XCTAssertTrue(parse(&object.optionalUrl,validUrlString))
 		XCTAssertTrue(object.optionalUrl?.absoluteString==validUrlString)
