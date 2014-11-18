@@ -17,6 +17,7 @@ func downcast<T: Hashable>(inout property: T?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -42,6 +43,7 @@ func downcast<T: Hashable>(inout property: T?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -68,6 +70,7 @@ func downcast<T: Hashable>(inout property: T,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -99,6 +102,7 @@ func downcast<T: Hashable>(inout property: T,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -131,6 +135,7 @@ func downcast(inout property: String?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -156,6 +161,7 @@ func downcast(inout property: String?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -182,6 +188,7 @@ func downcast(inout property: String,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -213,6 +220,7 @@ func downcast(inout property: String,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -245,6 +253,7 @@ func downcast(inout property: NSString?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -270,6 +279,7 @@ func downcast(inout property: NSString?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -296,6 +306,7 @@ func downcast(inout property: NSString,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -327,6 +338,7 @@ func downcast(inout property: NSString,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -359,6 +371,7 @@ func downcast(inout property: NSURL?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -384,6 +397,7 @@ func downcast(inout property: NSURL?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -410,6 +424,7 @@ func downcast(inout property: NSURL,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -441,6 +456,7 @@ func downcast(inout property: NSURL,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -473,6 +489,7 @@ func downcast(inout property: Bool?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -498,6 +515,7 @@ func downcast(inout property: Bool?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -524,6 +542,7 @@ func downcast(inout property: Bool,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -555,6 +574,7 @@ func downcast(inout property: Bool,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -587,6 +607,7 @@ func downcast(inout property: Int?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -632,6 +653,7 @@ func downcast(inout property: Int,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -663,6 +685,7 @@ func downcast(inout property: Int,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -712,6 +735,7 @@ func downcast(inout property: NSNumber?,value: AnyObject?) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -737,6 +761,7 @@ func downcast(inout property: NSNumber?,value: AnyObject) -> Bool {
 		property = convert(downcasted)
 	case let downcasted as NSNull:
 		property = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		property = convert(downcasted)
 	case let downcasted as Int:
@@ -763,6 +788,7 @@ func downcast(inout property: NSNumber,value: AnyObject?) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:
@@ -794,6 +820,7 @@ func downcast(inout property: NSNumber,value: AnyObject) -> Bool {
 		optionalProperty = convert(downcasted)
 	case let downcasted as NSNull:
 		optionalProperty = convert(downcasted)
+		return true
 	case let downcasted as Bool:
 		optionalProperty = convert(downcasted)
 	case let downcasted as Int:

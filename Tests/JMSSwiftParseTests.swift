@@ -40,7 +40,7 @@ class JMSSwiftParseTests: XCTestCase {
 
 	func testNull() {
 		XCTAssertFalse(parse(&object.requiredString,NSNull()))
-		XCTAssertTrue(parse(&object.optionalBool,NSNull()))
+		XCTAssertFalse(parse(&object.optionalBool,NSNull()))
 		XCTAssertTrue(object.optionalBool==nil)
 	}
     
