@@ -207,6 +207,36 @@ func convert(value : Int) -> NSString? {
 	return value.description
 }
 
+// MARK: Double <-> NSNumber
+
+func convert(value : NSNumber) -> Double? {
+	return value.doubleValue
+}
+
+func convert(value : Double) -> NSNumber? {
+	return NSNumber(double: value)
+}
+
+// MARK: Double <-> String
+
+func convert(value : String) -> Double? {
+	return NSString(string: value).doubleValue
+}
+
+func convert(value : Double) -> String? {
+	return value.description
+}
+
+// MARK: Double <-> NSString
+
+func convert(value : NSString) -> Double? {
+	return value.doubleValue
+}
+
+func convert(value : Double) -> NSString? {
+	return value.description
+}
+
 // MARK: NSDate <-> String
 
 var cache = Cache()

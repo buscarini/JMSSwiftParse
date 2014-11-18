@@ -710,6 +710,117 @@ func downcast(inout property: Int,value: AnyObject) -> Bool {
 	return false
 }
 
+// MARK: Double
+
+func downcast(inout property: Double?,value: AnyObject?) -> Bool {
+	switch value {
+	case let downcasted as NSNumber:
+		property = convert(downcasted)
+	case let downcasted as NSNull:
+		property = convert(downcasted)
+		return true
+	case let downcasted as Bool:
+		property = convert(downcasted)
+	case let downcasted as Double:
+		property = convert(downcasted)
+	case let downcasted as String:
+		property = convert(downcasted)
+	case let downcasted as NSString:
+		property = convert(downcasted)
+	case let downcasted as NSDate:
+		property = convert(downcasted)
+	case let downcasted as NSURL:
+		property = convert(downcasted)
+	default:
+		return false
+	}
+	
+	return property.hasValue
+}
+
+func downcast(inout property: Double?,value: AnyObject) -> Bool {
+	switch value {
+	case let downcasted as Double:
+		property = convert(downcasted)
+	case let downcasted as String:
+		property = convert(downcasted)
+	case let downcasted as NSString:
+		property = convert(downcasted)
+	case let downcasted as NSDate:
+		property = convert(downcasted)
+	case let downcasted as NSURL:
+		property = convert(downcasted)
+	default:
+		return false
+	}
+	
+	return property.hasValue
+}
+
+func downcast(inout property: Double,value: AnyObject?) -> Bool {
+	var optionalProperty : Double?
+	switch value {
+	case let downcasted as NSNumber:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSNull:
+		optionalProperty = convert(downcasted)
+		return true
+	case let downcasted as Bool:
+		optionalProperty = convert(downcasted)
+	case let downcasted as Double:
+		optionalProperty = convert(downcasted)
+	case let downcasted as String:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSString:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSDate:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSURL:
+		optionalProperty = convert(downcasted)
+	default:
+		return false
+	}
+	
+	if let converted = optionalProperty {
+		property = converted
+		return true
+	}
+	
+	return false
+}
+
+func downcast(inout property: Double,value: AnyObject) -> Bool {
+	var optionalProperty : Double?
+	switch value {
+	case let downcasted as NSNumber:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSNull:
+		optionalProperty = convert(downcasted)
+		return true
+	case let downcasted as Bool:
+		optionalProperty = convert(downcasted)
+	case let downcasted as Double:
+		optionalProperty = convert(downcasted)
+	case let downcasted as String:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSString:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSDate:
+		optionalProperty = convert(downcasted)
+	case let downcasted as NSURL:
+		optionalProperty = convert(downcasted)
+	default:
+		return false
+	}
+	
+	if let converted = optionalProperty {
+		property = converted
+		return true
+	}
+	
+	return false
+}
+
 // MARK: NSDate
 
 func downcast(inout property: NSDate?,value: AnyObject?,format: String) -> Bool {

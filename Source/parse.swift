@@ -1557,6 +1557,548 @@ public func parse(inout property: Int, value: NSString?) -> Bool {
 	return false
 }
 
+
+// MARK: Double -> NSNumber
+
+public func parse(inout property: NSNumber?, value: Double,validate: (NSNumber)->Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber?, value: Double) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Double,validate: (NSNumber)->Bool) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Double) -> Bool {
+	let converted : NSNumber? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber?, value: Double?,validate: (NSNumber)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber?, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Double?,validate: (NSNumber)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSNumber, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : NSNumber? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: NSNumber -> Double
+
+public func parse(inout property: Double?, value: NSNumber,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSNumber) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSNumber,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSNumber) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSNumber?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSNumber?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSNumber?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSNumber?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: Double -> String
+
+public func parse(inout property: String?, value: Double,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: Double) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Double,validate: (String)->Bool) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Double) -> Bool {
+	let converted : String? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: Double?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String?, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Double?,validate: (String)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: String, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : String? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: String -> Double
+
+public func parse(inout property: Double?, value: String,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: String) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: String,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: String) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: String?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: String?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: String?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: Double -> NSString
+
+public func parse(inout property: NSString?, value: Double,validate: (NSString)->Bool) -> Bool {
+	let converted : NSString? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSString?, value: Double) -> Bool {
+	let converted : NSString? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSString, value: Double,validate: (NSString)->Bool) -> Bool {
+	let converted : NSString? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSString, value: Double) -> Bool {
+	let converted : NSString? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: NSString?, value: Double?,validate: (NSString)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSString? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSString?, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : NSString? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSString, value: Double?,validate: (NSString)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : NSString? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: NSString, value: Double?) -> Bool {
+	if let validValue = value {
+		let converted : NSString? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+// MARK: NSString -> Double
+
+public func parse(inout property: Double?, value: NSString,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSString) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSString,validate: (Double)->Bool) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		if validate(valid) {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSString) -> Bool {
+	let converted : Double? = convert(value)
+	if let valid = converted {
+		property = valid
+		return true
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSString?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double?, value: NSString?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSString?,validate: (Double)->Bool) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			if validate(valid) {
+				property = valid
+				return true
+			}
+		}
+	}
+	return false
+}
+
+public func parse(inout property: Double, value: NSString?) -> Bool {
+	if let validValue = value {
+		let converted : Double? = convert(validValue)
+		if let valid = converted {
+			property = valid
+			return true
+		}
+	}
+	return false
+}
+
+
 // MARK: NSDate -> String
 
 public func parse(inout property: String?, value: NSDate,format: String,validate: (String)->Bool) -> Bool {

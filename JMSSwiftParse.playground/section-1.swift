@@ -27,13 +27,13 @@ a
 
 // MARK: Parse JSON
 
-let jsonString = "{ \"name\" : \"Antonio\",\"email\" : \"antonio@gmail.com\",\"available\" : false, \"url\" : \"http://www.google.com\", \"date\" : \"22.7.2010 10:02\",\"amount\" : 22, \"other_amount\" : \"33\" }"
+let jsonString = "{ \"name\" : \"Antonio\",\"email\" : \"antonio@gmail.com\",\"available\" : \"TRUE\", \"url\" : \"http://www.google.com\", \"date\" : \"22.7.2010 10:02\",\"amount\" : \"22\", \"other_amount\" : \"33\" }"
 
 var error : NSError?
 let dic: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: .MutableLeaves, error: &error)
 
 if let validDic = dic as? NSDictionary {
-	let jsonValid = parse(&a.name,validDic["name"], longerThan(4) && shorterThan(20))
+	let jsonValid = parse(&a.name,validDic["name"], longerThan(8) || shorterThan(20))
 					&& parse(&a.date,validDic["date"],"dd.M.yyyy HH:mm")
 					&& parse(&a.email,validDic["email"], isEmail)
 					&& parse(&a.available,validDic["available"])
