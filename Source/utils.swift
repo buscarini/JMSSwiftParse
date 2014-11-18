@@ -90,3 +90,24 @@ public extension NSDate {
 	}
 }
 
+// MARK: Optional
+
+extension Optional {
+	func valueOrDefault(defaultValue: @autoclosure ()->T) -> T {
+		return apply(self!, defaultValue())
+	}
+	
+	var hasValue: Bool {
+		get { return apply(true, false) }
+	}
+	
+	private func apply<U>(caseSome:@autoclosure ()->U,_ caseNone:@autoclosure ()->U) -> U {
+		switch(self) {
+		case .Some:
+			return caseSome()
+		case .None:
+			return caseNone()
+		}
+	}
+}
+

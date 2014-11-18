@@ -168,9 +168,6 @@ class JMSSwiftParseTests: XCTestCase {
 		let validOptionalUrlNSString : NSString? = NSString(string: "http://www.google.com")
 		let invalidUrlString = "blah"
 		
-//		XCTAssertFalse(parse(&object.optionalUrl,nil))
-//		XCTAssertFalse(parse(&object.requiredUrl,nil))
-		
 		XCTAssertTrue(parse(&object.optionalUrl,validUrlString))
 		XCTAssertTrue(object.optionalUrl?.absoluteString==validUrlString)
 		
@@ -555,6 +552,7 @@ class JMSSwiftParseTests: XCTestCase {
 		let dateFormat = "dd:MM:yyyy HH:mm:ss"
 		var parsedString = ""
 
+		XCTAssertTrue(parse(&date, dateString,dateFormat))
 		XCTAssertTrue(parse(&date, dateString,dateFormat,earlierThan(NSDate.today())))
 		XCTAssertTrue(parse(&date, dateString,dateFormat,laterThan(NSDate(timeIntervalSince1970: 0))))
 
@@ -597,6 +595,48 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		XCTAssertTrue(parse(&name, rawName))
 		
+	}
+	
+	func testAnyObjectUrl() {
+		let string = "http://www.google.com"
+		let urlString : AnyObject = string
+		let optionalUrlString : AnyObject? = string
+		let urlNSString : AnyObject = NSString(string: string)
+		let optionalUrlNSString : AnyObject? = NSString(string: string)
+
+		XCTAssertTrue(parse(&object.requiredUrl,urlString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==string)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,urlString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString!==string)
+
+		XCTAssertTrue(parse(&object.requiredUrl,optionalUrlString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==string)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,optionalUrlString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString!==string)
+		
+		XCTAssertTrue(parse(&object.requiredUrl,urlNSString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==string)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,urlNSString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString!==string)
+
+		XCTAssertTrue(parse(&object.requiredUrl,optionalUrlNSString))
+		XCTAssertTrue(object.requiredUrl.absoluteString==string)
+		
+		XCTAssertTrue(parse(&object.optionalUrl,optionalUrlNSString))
+		XCTAssertTrue(object.optionalUrl?.absoluteString!==string)
+	}
+	
+	func testAnyObjectDate() {
+		var date = NSDate()
+		let dateString: AnyObject? = "24:01:2012 11:55:58"
+		let dateFormat = "dd:MM:yyyy HH:mm:ss"
+		var parsedString = ""
+
+		XCTAssertTrue(parse(&date, dateString,dateFormat))
+		XCTAssertTrue(parse(&date, dateString,dateFormat,earlierThan(NSDate.today())))
 	}
 }
 

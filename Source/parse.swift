@@ -156,9 +156,11 @@ public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
 	return false
 }
 
-/*
-public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
-	let converted : T? = convert(value)
+// MARK: NSDate <-> AnyObject
+
+public func parse(inout property: NSDate?, value: AnyObject, format: String,validate: (NSDate)->Bool) -> Bool {
+	var converted : NSDate?
+	downcast(&converted, value, format)
 	if let valid = converted {
 		if validate(valid) {
 			property = valid
@@ -168,8 +170,9 @@ public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -
 	return false
 }
 
-public func parse<T>(inout property: T?, value: AnyObject) -> Bool {
-	let converted : T? = convert(value)
+public func parse(inout property: NSDate?, value: AnyObject, format: String) -> Bool {
+	var converted : NSDate?
+	downcast(&converted, value, format)
 	if let valid = converted {
 		property = valid
 		return true
@@ -177,8 +180,9 @@ public func parse<T>(inout property: T?, value: AnyObject) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T, value: AnyObject,validate: (T)->Bool) -> Bool {
-	let converted : T? = convert(value)
+public func parse(inout property: NSDate, value: AnyObject, format: String,validate: (NSDate)->Bool) -> Bool {
+	var converted : NSDate?
+	downcast(&converted, value, format)
 	if let valid = converted {
 		if validate(valid) {
 			property = valid
@@ -188,8 +192,9 @@ public func parse<T>(inout property: T, value: AnyObject,validate: (T)->Bool) ->
 	return false
 }
 
-public func parse<T>(inout property: T, value: AnyObject) -> Bool {
-	let converted : T? = convert(value)
+public func parse(inout property: NSDate, value: AnyObject, format: String) -> Bool {
+	var converted : NSDate?
+	downcast(&converted, value, format)
 	if let valid = converted {
 		property = valid
 		return true
@@ -197,9 +202,10 @@ public func parse<T>(inout property: T, value: AnyObject) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T?, value: AnyObject?,validate: (T)->Bool) -> Bool {
+public func parse(inout property: NSDate?, value: AnyObject?, format: String,validate: (NSDate)->Bool) -> Bool {
 	if let validValue : AnyObject = value {
-		let converted : T? = convert(validValue)
+		var converted : NSDate?
+		downcast(&converted, value, format)
 		if let valid = converted {
 			if validate(valid) {
 				property = valid
@@ -210,9 +216,10 @@ public func parse<T>(inout property: T?, value: AnyObject?,validate: (T)->Bool) 
 	return false
 }
 
-public func parse<T>(inout property: T?, value: AnyObject?) -> Bool {
+public func parse(inout property: NSDate?, value: AnyObject?, format: String) -> Bool {
 	if let validValue : AnyObject = value {
-		let converted : T? = convert(validValue)
+		var converted : NSDate?
+		downcast(&converted, value, format)
 		if let valid = converted {
 			property = valid
 			return true
@@ -221,9 +228,10 @@ public func parse<T>(inout property: T?, value: AnyObject?) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T, value: AnyObject?,validate: (T)->Bool) -> Bool {
+public func parse(inout property: NSDate, value: AnyObject?, format: String,validate: (NSDate)->Bool) -> Bool {
 	if let validValue : AnyObject = value {
-		let converted : T? = convert(validValue)
+		var converted : NSDate?
+		downcast(&converted, value, format)
 		if let valid = converted {
 			if validate(valid) {
 				property = valid
@@ -234,9 +242,10 @@ public func parse<T>(inout property: T, value: AnyObject?,validate: (T)->Bool) -
 	return false
 }
 
-public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
+public func parse(inout property: NSDate, value: AnyObject?, format: String) -> Bool {
 	if let validValue : AnyObject = value {
-		let converted : T? = convert(validValue)
+		var converted : NSDate?
+		downcast(&converted, value, format)
 		if let valid = converted {
 			property = valid
 			return true
@@ -244,7 +253,6 @@ public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
 	}
 	return false
 }
-*/
 
 // MARK: T <- NSNull
 

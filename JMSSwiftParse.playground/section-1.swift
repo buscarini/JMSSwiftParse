@@ -14,6 +14,8 @@ class TestClass {
 	var date = NSDate()
 }
 
+// MARK: Parse values
+
 let a = TestClass()
 
 let valid = parse(&a.name,"Pepe", longerThan(5) || shorterThan(20)) &&
@@ -23,23 +25,21 @@ let valid = parse(&a.name,"Pepe", longerThan(5) || shorterThan(20)) &&
 
 a
 
+// MARK: Parse JSON
 
-let jsonString = "{ \"name\" : \"Antonio\",\"email\" : \"antonio@gmail.com\",\"available\" : false }"
+let jsonString = "{ \"name\" : \"Antonio\",\"email\" : \"antonio@gmail.com\",\"available\" : false, \"url\" : \"http://www.google.com\", \"date\" : \"22.7.2010 10:02\",\"amount\" : 22, \"other_amount\" : \"33\" }"
 
 var error : NSError?
 let dic: AnyObject? = NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, options: .MutableLeaves, error: &error)
 
 if let validDic = dic as? NSDictionary {
-	
-	let name: AnyObject? = validDic["name"]
-	
-	parse(&a.name,validDic["name"])
-//	parse(&a.name,name, longerThan(5) && shorterThan(20))
-	
-//	let jsonValid = parse(&a.name,validDic["name"], longerThan(5) || shorterThan(20)) &&
-//		parse(&a.email,validDic["email"], isEmail) &&
-//		parse(&a.available,validDic["available"]) &&
-//		parse(&a.requiredUrl,"http://www.google.com")
+	let jsonValid = parse(&a.name,validDic["name"], longerThan(4) && shorterThan(20))
+					&& parse(&a.date,validDic["date"],"dd.M.yyyy HH:mm")
+					&& parse(&a.email,validDic["email"], isEmail)
+					&& parse(&a.available,validDic["available"])
+					&& parse(&a.requiredUrl,validDic["url"])
+					&& parse(&a.optionalUrl,validDic["url"])
+//					&& parse(&a.amount,validDic["amount"])
 }
 else {
 	NSLog("No dictionary")
