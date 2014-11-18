@@ -11,24 +11,24 @@ func convert<T,U>(value : T) -> U? {
 }
 
 
-// MARK: Bool <-> NSNumber
+// MARK: String -> Int
 
-func convert(value : NSNumber) -> Bool? {
-	return value.boolValue
-}
-
-func convert(value : Bool) -> NSNumber? {
-	return NSNumber(bool: value)
+func convert(value : String) -> Int? {
+	return NSString(string:value).integerValue
 }
 
 func reconvert<T,U>(value: T) -> U? {
 	return convert(value)
 }
 
-var number = NSNumber(integer: 2)
+func rereconvert<T,U>(value: T) -> U? {
+	return reconvert(value)
+}
 
-number = convert(true)!
+//number = convert(true)!
+//
+//number = reconvert(true)!
 
-number = reconvert(true)!
+let number: Int? = convert("22")
 
 

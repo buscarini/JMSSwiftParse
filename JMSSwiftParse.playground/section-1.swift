@@ -39,7 +39,7 @@ if let validDic = dic as? NSDictionary {
 					&& parse(&a.available,validDic["available"])
 					&& parse(&a.requiredUrl,validDic["url"])
 					&& parse(&a.optionalUrl,validDic["url"])
-//					&& parse(&a.amount,validDic["amount"])
+					&& parse(&a.amount,validDic["amount"])
 }
 else {
 	NSLog("No dictionary")

@@ -14,7 +14,7 @@ extension String {
 	}
 }
 
-func convert<T,U>(value : T) -> U? {
+func convert<T: Hashable,U: Hashable>(value : T) -> U? {
 	return value as? U
 }
 
@@ -100,6 +100,13 @@ func convert(string : String) -> NSNumber? {
 	}
 	return nil
 }*/
+
+// MARK: NSNull
+
+func convert<T: Hashable>(value : NSNull) -> T? {
+	return nil
+}
+
 
 // MARK: Bool <-> NSNumber
 
@@ -231,109 +238,4 @@ func convert(value : NSDate,format: String) -> String? {
 }
 
 
-// MARK: AnyObject
-
-/*func convert<T>(value: AnyObject?) -> T? {
-	switch value {
-	case let downcasted as T:
-		return convert(downcasted)
-	default:
-		return nil
-	}
-}*/
-
-//func downcast<T>(inout property: T,value: AnyObject) -> Bool {
-//	switch value {
-//		case let downcasted as Bool:
-//			property = convert(downcasted)
-//			return true
-//		case let downcasted as Int:
-//			property = convert(downcasted)
-//			return true
-//		case let downcasted as Float:
-//			property = convert(downcasted)
-//			return true
-//		default:
-//			return false
-//	}
-//}
-
-//func downcast<T>(property: T,value: AnyObject?) -> T? {
-//	switch value {
-//	case let downcasted as T:
-//		return downcasted
-//	default:
-//		return nil
-//	}
-//}
-
-
-func downcast<T>(inout property: T?,value: AnyObject?) -> Bool {
-	switch value {
-		case let downcasted as Bool:
-			property = convert(downcasted)
-		case let downcasted as Int:
-			property = convert(downcasted)
-		case let downcasted as String:
-			property = convert(downcasted)
-		case let downcasted as NSString:
-			property = convert(downcasted)
-		case let downcasted as NSDate:
-			property = convert(downcasted)
-		case let downcasted as NSURL:
-			property = convert(downcasted)
-		default:
-			return false
-	}
-	
-	return property.hasValue
-}
-
-func downcast<T>(inout property: T,value: AnyObject?) -> Bool {
-	var optionalProperty : T?
-	switch value {
-		case let downcasted as Bool:
-			optionalProperty = convert(downcasted)
-		case let downcasted as Int:
-			optionalProperty = convert(downcasted)
-		case let downcasted as String:
-			optionalProperty = convert(downcasted)
-		case let downcasted as NSString:
-			optionalProperty = convert(downcasted)
-		case let downcasted as NSDate:
-			optionalProperty = convert(downcasted)
-		case let downcasted as NSURL:
-			optionalProperty = convert(downcasted)
-		default:
-			return false
-	}
-
-	if let converted = optionalProperty {
-		property = converted
-		return true
-	}
-	
-	return false
-}
-
-func downcast(inout property: NSDate?,value: AnyObject?,format: String) -> Bool {
-	switch value {
-		case let downcasted as Bool:
-			property = convert(downcasted, format)
-		case let downcasted as Int:
-			property = convert(downcasted, format)
-		case let downcasted as String:
-			property = convert(downcasted, format)
-		case let downcasted as NSString:
-			property = convert(downcasted, format)
-		case let downcasted as NSDate:
-			property = convert(downcasted, format)
-		case let downcasted as NSURL:
-			property = convert(downcasted, format)
-		default:
-			return false
-	}
-	
-	return property.hasValue
-}
 

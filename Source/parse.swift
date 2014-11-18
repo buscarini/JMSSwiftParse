@@ -9,9 +9,8 @@
 import Foundation
 
 // MARK: Generic Parsers
-
 /*
-public func parse<T,U>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T: Hashable,U: Hashable>(inout property: T, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
@@ -22,7 +21,7 @@ public func parse<T,U>(inout property: T, value: U,validate: (T)->Bool = { (val)
 	return false
 }
 
-public func parse<T,U>(inout property: T?, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T: Hashable,U: Hashable>(inout property: T?, value: U,validate: (T)->Bool = { (val) in true }) -> Bool {
 	let converted : T? = convert(value)
 	if let valid = converted {
 		if validate(valid) {
@@ -33,14 +32,14 @@ public func parse<T,U>(inout property: T?, value: U,validate: (T)->Bool = { (val
 	return false
 }
 
-public func parse<T,U>(inout property: T, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T: Hashable,U: Hashable>(inout property: T, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
 	if let validValue : U = value {
 		return parse(&property, validValue, validate: validate)
 	}
 	return false
 }
 
-public func parse<T,U>(inout property: T?, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
+public func parse<T: Hashable,U: Hashable>(inout property: T?, value: U?,validate: (T)->Bool = { (val) in true }) -> Bool {
 	if let validValue : U = value {
 		return parse(&property, validValue, validate: validate)
 	}
@@ -49,225 +48,31 @@ public func parse<T,U>(inout property: T?, value: U?,validate: (T)->Bool = { (va
 */
 
 
-
-/*public func parse<T>(inout property: T, value: T,validate: (T)->Bool = { (val) in true }) -> Bool {
+/*
+public func parse<T>(inout property: T, value: T,validate: (T)->Bool = { (val) in true }) -> Bool {
 	if validate(value) {
 		property = value
 		return true
 	}
 	return false
-}*/
-
-// MARK: T <-> AnyObject
-
-public func parse<T>(inout property: T?, value: AnyObject,validate: (T)->Bool) -> Bool {
-	var converted : T?
-	downcast(&converted, value)
-	if let valid = converted {
-		if validate(valid) {
-			property = valid
-			return true
-		}
-	}
-	return false
 }
-
-public func parse<T>(inout property: T?, value: AnyObject) -> Bool {
-	var converted : T?
-	downcast(&converted, value)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	return false
-}
-
-public func parse<T>(inout property: T, value: AnyObject,validate: (T)->Bool) -> Bool {
-	var converted : T?
-	downcast(&converted, value)
-	if let valid = converted {
-		if validate(valid) {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-public func parse<T>(inout property: T, value: AnyObject) -> Bool {
-	var converted : T?
-	downcast(&converted, value)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	return false
-}
-
-public func parse<T>(inout property: T?, value: AnyObject?,validate: (T)->Bool) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : T?
-		downcast(&converted, value)
-		if let valid = converted {
-			if validate(valid) {
-				property = valid
-				return true
-			}
-		}
-	}
-	return false
-}
-
-public func parse<T>(inout property: T?, value: AnyObject?) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : T?
-		downcast(&converted, value)
-		if let valid = converted {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-public func parse<T>(inout property: T, value: AnyObject?,validate: (T)->Bool) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : T?
-		downcast(&converted, value)
-		if let valid = converted {
-			if validate(valid) {
-				property = valid
-				return true
-			}
-		}
-	}
-	return false
-}
-
-public func parse<T>(inout property: T, value: AnyObject?) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : T?
-		downcast(&converted, value)
-		if let valid = converted {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-// MARK: NSDate <-> AnyObject
-
-public func parse(inout property: NSDate?, value: AnyObject, format: String,validate: (NSDate)->Bool) -> Bool {
-	var converted : NSDate?
-	downcast(&converted, value, format)
-	if let valid = converted {
-		if validate(valid) {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-public func parse(inout property: NSDate?, value: AnyObject, format: String) -> Bool {
-	var converted : NSDate?
-	downcast(&converted, value, format)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	return false
-}
-
-public func parse(inout property: NSDate, value: AnyObject, format: String,validate: (NSDate)->Bool) -> Bool {
-	var converted : NSDate?
-	downcast(&converted, value, format)
-	if let valid = converted {
-		if validate(valid) {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-public func parse(inout property: NSDate, value: AnyObject, format: String) -> Bool {
-	var converted : NSDate?
-	downcast(&converted, value, format)
-	if let valid = converted {
-		property = valid
-		return true
-	}
-	return false
-}
-
-public func parse(inout property: NSDate?, value: AnyObject?, format: String,validate: (NSDate)->Bool) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : NSDate?
-		downcast(&converted, value, format)
-		if let valid = converted {
-			if validate(valid) {
-				property = valid
-				return true
-			}
-		}
-	}
-	return false
-}
-
-public func parse(inout property: NSDate?, value: AnyObject?, format: String) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : NSDate?
-		downcast(&converted, value, format)
-		if let valid = converted {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
-
-public func parse(inout property: NSDate, value: AnyObject?, format: String,validate: (NSDate)->Bool) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : NSDate?
-		downcast(&converted, value, format)
-		if let valid = converted {
-			if validate(valid) {
-				property = valid
-				return true
-			}
-		}
-	}
-	return false
-}
-
-public func parse(inout property: NSDate, value: AnyObject?, format: String) -> Bool {
-	if let validValue : AnyObject = value {
-		var converted : NSDate?
-		downcast(&converted, value, format)
-		if let valid = converted {
-			property = valid
-			return true
-		}
-	}
-	return false
-}
+*/
 
 // MARK: T <- NSNull
 
-public func parse<T>(inout property: T, value: NSNull) -> Bool {
+public func parse<T: Hashable>(inout property: T, value: NSNull) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T?, value: NSNull) -> Bool {
+public func parse<T: Hashable>(inout property: T?, value: NSNull) -> Bool {
 	property = nil
 	return true
 }
 
 // MARK: T <-> T
 
-public func parse<T>(inout property: T, value: T?,validate: (T)->Bool) -> Bool {
+
+public func parse<T: Hashable>(inout property: T, value: T?,validate: (T)->Bool) -> Bool {
 	if let valid = value {
 		if validate(valid) {
 			property = valid
@@ -277,7 +82,7 @@ public func parse<T>(inout property: T, value: T?,validate: (T)->Bool) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T?, value: T?,validate: (T)->Bool) -> Bool {
+public func parse<T: Hashable>(inout property: T?, value: T?,validate: (T)->Bool) -> Bool {
 	if let valid = value {
 		if validate(valid) {
 			property = valid
@@ -287,7 +92,7 @@ public func parse<T>(inout property: T?, value: T?,validate: (T)->Bool) -> Bool 
 	return false
 }
 
-public func parse<T>(inout property: T, value: T?) -> Bool {
+public func parse<T: Hashable>(inout property: T, value: T?) -> Bool {
 	if let valid = value {
 		property = valid
 		return true
@@ -295,13 +100,14 @@ public func parse<T>(inout property: T, value: T?) -> Bool {
 	return false
 }
 
-public func parse<T>(inout property: T?, value: T?) -> Bool {
+public func parse<T: Hashable>(inout property: T?, value: T?) -> Bool {
 	if let valid = value {
 		property = valid
 		return true
 	}
 	return false
 }
+
 
 
 // MARK: Specific methods, required while they fix Swift bugs

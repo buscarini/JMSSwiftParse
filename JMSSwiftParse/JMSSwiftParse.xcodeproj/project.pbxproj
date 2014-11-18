@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1573321A1B68D200FBAC87 /* parseAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1573311A1B68D200FBAC87 /* parseAny.swift */; };
+		AC1573341A1B6F1900FBAC87 /* conversionsAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1573331A1B6F1900FBAC87 /* conversionsAny.swift */; };
 		AC5993861A173E2F00FA59CD /* conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310471A10E965001989F1 /* conversions.swift */; };
 		AC5993871A173E2F00FA59CD /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310481A10E965001989F1 /* parse.swift */; };
 		AC5993881A173E2F00FA59CD /* validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310491A10E965001989F1 /* validation.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC1573311A1B68D200FBAC87 /* parseAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parseAny.swift; path = ../../Source/parseAny.swift; sourceTree = "<group>"; };
+		AC1573331A1B6F1900FBAC87 /* conversionsAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conversionsAny.swift; path = ../../Source/conversionsAny.swift; sourceTree = "<group>"; };
 		ACB11E9E1A19E10E004884F4 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = utils.swift; path = ../../Source/utils.swift; sourceTree = "<group>"; };
 		ACD3101D1A10E55B001989F1 /* JMSSwiftParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JMSSwiftParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD310211A10E55B001989F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +84,9 @@
 			children = (
 				ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */,
 				ACD310471A10E965001989F1 /* conversions.swift */,
+				AC1573331A1B6F1900FBAC87 /* conversionsAny.swift */,
 				ACD310481A10E965001989F1 /* parse.swift */,
+				AC1573311A1B68D200FBAC87 /* parseAny.swift */,
 				ACD310491A10E965001989F1 /* validation.swift */,
 				ACD310201A10E55B001989F1 /* Supporting Files */,
 				ACED54671A13672D007029CF /* tests.swift */,
@@ -223,8 +229,10 @@
 			files = (
 				AC5993861A173E2F00FA59CD /* conversions.swift in Sources */,
 				AC5993871A173E2F00FA59CD /* parse.swift in Sources */,
+				AC1573341A1B6F1900FBAC87 /* conversionsAny.swift in Sources */,
 				AC5993881A173E2F00FA59CD /* validation.swift in Sources */,
 				ACB11E9F1A19E10E004884F4 /* utils.swift in Sources */,
+				AC1573321A1B68D200FBAC87 /* parseAny.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
