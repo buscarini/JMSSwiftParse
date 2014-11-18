@@ -131,6 +131,26 @@ func convert(value : Bool) -> String? {
 	return "false"
 }
 
+// MARK: Bool <-> NSString
+
+func convert(value : NSString) -> Bool? {
+	let lowercase = value.lowercaseString
+	if lowercase=="true" {
+		return true
+	}
+	else if lowercase=="false" {
+		return false
+	}
+	return nil
+}
+
+func convert(value : Bool) -> NSString? {
+	if value {
+		return "true"
+	}
+	return "false"
+}
+
 // MARK: String <-> NSURL
 
 
@@ -170,6 +190,15 @@ func convert(value : Int) -> String? {
 	return value.description
 }
 
+// MARK: Int <-> NSString
+
+func convert(value : NSString) -> Int? {
+	return value.integerValue
+}
+
+func convert(value : Int) -> NSString? {
+	return value.description
+}
 
 // MARK: NSDate <-> String
 
