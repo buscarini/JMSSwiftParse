@@ -24,12 +24,16 @@ class testString: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+	
+	func testNull() {
+		XCTAssertFalse(parse(&object.requiredString,NSNull()))
+	}
 
 	func testRequiredString() {
 		let name = "Pepe"
 		let other = "Other"
 		let optional : String? = "blah"
-		
+
 		XCTAssertTrue(parse(&object.requiredString,name))
 		XCTAssertTrue(object.requiredString==name)
 		
@@ -74,7 +78,7 @@ class testString: XCTestCase {
 		let name = "Pepe"
 		let other = "Other"
 		let optional : String? = "blah"
-		
+
 		XCTAssertTrue(parse(&object.optionalString,name))
 		XCTAssertTrue(object.optionalString==name)
 		

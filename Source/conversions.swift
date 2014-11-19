@@ -10,7 +10,9 @@ import Foundation
 
 extension String {
 	func toDouble() -> Double? {
-		return NSString(string: self).doubleValue
+		numberFormatter.numberStyle = .DecimalStyle
+		let number = numberFormatter.numberFromString(self)
+		return number?.doubleValue
 	}
 }
 

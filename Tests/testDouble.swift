@@ -1,19 +1,34 @@
 //
-//  JMSSwiftParseTests.swift
-//  JMSSwiftParseTests
+//  testDouble.swift
+//  JMSSwiftParse
 //
-//  Created by Jose Manuel Sánchez Peñarroja on 10/11/14.
+//  Created by Jose Manuel Sánchez Peñarroja on 19/11/14.
 //  Copyright (c) 2014 José Manuel Sánchez. All rights reserved.
 //
 
 import UIKit
-import JMSSwiftParse
 import XCTest
 
-class JMSSwiftParseTests: XCTestCase {
+import JMSSwiftParse
+
+class testDouble: XCTestCase {
 	
 	let object = TestClass()
 	
+	let positiveDouble = 33.0
+	let negativeDouble = -45.0
+	let optionalPositiveDouble : Double? = 33.0
+	let optionalNegativeDouble : Double? = -45.0
+	let positiveNumber = NSNumber(double: 10.0)
+	let negativeNumber = NSNumber(double: -50.0)
+	let positiveDoubleString = "33.0"
+	let negativeDoubleString = "-45.0"
+	let positiveDoubleNSString = NSString(string:"33.0")
+	let negativeDoubleNSString = NSString(string:"-45.0")
+
+	let badDoubleString = "Blah"
+	let badDoubleNSString = NSString(string: "Blah")
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,24 +39,7 @@ class JMSSwiftParseTests: XCTestCase {
         super.tearDown()
     }
 
-	func testNull() {
-		XCTAssertFalse(parse(&object.requiredString,NSNull()))
-		XCTAssertFalse(parse(&object.optionalBool,NSNull()))
-		XCTAssertTrue(object.optionalBool==nil)
-	}	
-	
 	func testRequiredDouble() {
-		let positiveDouble = 33.0
-		let negativeDouble = -45.0
-		let optionalPositiveDouble : Double? = 33.0
-		let optionalNegativeDouble : Double? = -45.0
-		let positiveNumber = NSNumber(double: 10.0)
-		let negativeNumber = NSNumber(double: -50.0)
-		let positiveDoubleString = "33.0"
-		let negativeDoubleString = "-45.0"
-		let positiveDoubleNSString = NSString(string:"33.0")
-		let negativeDoubleNSString = NSString(string:"-45.0")
-		
 		// Double
 		
 		XCTAssertTrue(parse(&object.requiredDouble, positiveDouble))
@@ -131,19 +129,18 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		XCTAssertTrue(parse(&object.requiredDouble, positiveDoubleNSString, !equal(40.0)))
 		XCTAssertTrue(object.requiredDouble==positiveDouble)
-	}
 
+		
+		// Bad String
+		XCTAssertFalse(parse(&object.requiredDouble, badDoubleString))
+		XCTAssertTrue(object.requiredDouble==positiveDouble)
+
+		// Bad NSString
+		XCTAssertFalse(parse(&object.requiredDouble, badDoubleNSString))
+		XCTAssertTrue(object.requiredDouble==positiveDouble)
+	}
+	
 	func testOptionalDouble() {
-		let positiveDouble = 33.0
-		let negativeDouble = -45.0
-		let optionalPositiveDouble : Double? = 33.0
-		let optionalNegativeDouble : Double? = -45.0
-		let positiveNumber = NSNumber(double: 10.0)
-		let negativeNumber = NSNumber(double: -50.0)
-		let positiveDoubleString = "33.0"
-		let negativeDoubleString = "-45.0"
-		let positiveDoubleNSString = NSString(string:"33.0")
-		let negativeDoubleNSString = NSString(string:"-45.0")
 		
 		// Double
 		
@@ -234,7 +231,13 @@ class JMSSwiftParseTests: XCTestCase {
 		
 		XCTAssertTrue(parse(&object.optionalDouble, positiveDoubleNSString, !equal(40)))
 		XCTAssertTrue(object.optionalDouble==positiveDouble)
+		
+		// Bad String
+		XCTAssertFalse(parse(&object.optionalDouble, badDoubleString))
+		XCTAssertTrue(object.optionalDouble==positiveDouble)
+		
+		// Bad NSString
+		XCTAssertFalse(parse(&object.optionalDouble, badDoubleNSString))
+		XCTAssertTrue(object.optionalDouble==positiveDouble)
 	}
 }
-
-

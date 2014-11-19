@@ -34,6 +34,11 @@ public class Cache {
 	}
 }
 
+// MARK: Number formatter
+
+var numberFormatter = NSNumberFormatter()
+//numberFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+
 let gregorian = NSCalendar(calendarIdentifier: NSGregorianCalendar)
 
 // MARK: Dates
