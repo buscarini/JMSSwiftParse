@@ -15,6 +15,15 @@
 		ACB11E9F1A19E10E004884F4 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB11E9E1A19E10E004884F4 /* utils.swift */; };
 		ACD3103E1A10E575001989F1 /* JMSSwiftParse.h in Headers */ = {isa = PBXBuildFile; fileRef = ACD3103A1A10E575001989F1 /* JMSSwiftParse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */; };
+		ACF20ED31A1C81DD005C6E9C /* testInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20ED21A1C81DD005C6E9C /* testInt.swift */; };
+		ACF20ED51A1C824A005C6E9C /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20ED41A1C824A005C6E9C /* helpers.swift */; };
+		ACF20ED71A1C827E005C6E9C /* testString.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20ED61A1C827E005C6E9C /* testString.swift */; };
+		ACF20ED91A1C84DC005C6E9C /* testNSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20ED81A1C84DC005C6E9C /* testNSString.swift */; };
+		ACF20EDB1A1C84F8005C6E9C /* testAnyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20EDA1A1C84F8005C6E9C /* testAnyObject.swift */; };
+		ACF20EDD1A1C853F005C6E9C /* testNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20EDC1A1C853F005C6E9C /* testNSDate.swift */; };
+		ACF20EE11A1C8592005C6E9C /* testEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20EE01A1C8592005C6E9C /* testEmail.swift */; };
+		ACF20EE31A1C85C1005C6E9C /* testNSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20EE21A1C85C1005C6E9C /* testNSURL.swift */; };
+		ACF20EE51A1C85EB005C6E9C /* testBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF20EE41A1C85EB005C6E9C /* testBool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +50,15 @@
 		ACD310481A10E965001989F1 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parse.swift; path = ../../Source/parse.swift; sourceTree = "<group>"; };
 		ACD310491A10E965001989F1 /* validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = validation.swift; path = ../../Source/validation.swift; sourceTree = "<group>"; };
 		ACED54671A13672D007029CF /* tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tests.swift; sourceTree = "<group>"; };
+		ACF20ED21A1C81DD005C6E9C /* testInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testInt.swift; path = ../../Tests/testInt.swift; sourceTree = "<group>"; };
+		ACF20ED41A1C824A005C6E9C /* helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = helpers.swift; path = ../../Tests/helpers.swift; sourceTree = "<group>"; };
+		ACF20ED61A1C827E005C6E9C /* testString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testString.swift; path = ../../Tests/testString.swift; sourceTree = "<group>"; };
+		ACF20ED81A1C84DC005C6E9C /* testNSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testNSString.swift; path = ../../Tests/testNSString.swift; sourceTree = "<group>"; };
+		ACF20EDA1A1C84F8005C6E9C /* testAnyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testAnyObject.swift; path = ../../Tests/testAnyObject.swift; sourceTree = "<group>"; };
+		ACF20EDC1A1C853F005C6E9C /* testNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testNSDate.swift; path = ../../Tests/testNSDate.swift; sourceTree = "<group>"; };
+		ACF20EE01A1C8592005C6E9C /* testEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testEmail.swift; path = ../../Tests/testEmail.swift; sourceTree = "<group>"; };
+		ACF20EE21A1C85C1005C6E9C /* testNSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testNSURL.swift; path = ../../Tests/testNSURL.swift; sourceTree = "<group>"; };
+		ACF20EE41A1C85EB005C6E9C /* testBool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = testBool.swift; path = ../../Tests/testBool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +125,16 @@
 			isa = PBXGroup;
 			children = (
 				ACD310421A10E58A001989F1 /* JMSSwiftParseTests.swift */,
+				ACF20ED21A1C81DD005C6E9C /* testInt.swift */,
+				ACF20ED61A1C827E005C6E9C /* testString.swift */,
+				ACF20EE01A1C8592005C6E9C /* testEmail.swift */,
+				ACF20ED81A1C84DC005C6E9C /* testNSString.swift */,
+				ACF20EDC1A1C853F005C6E9C /* testNSDate.swift */,
+				ACF20EE21A1C85C1005C6E9C /* testNSURL.swift */,
+				ACF20EDA1A1C84F8005C6E9C /* testAnyObject.swift */,
+				ACF20EE41A1C85EB005C6E9C /* testBool.swift */,
 				ACD3102D1A10E55B001989F1 /* Supporting Files */,
+				ACF20ED41A1C824A005C6E9C /* helpers.swift */,
 			);
 			path = JMSSwiftParseTests;
 			sourceTree = "<group>";
@@ -241,6 +268,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACD310871A110012001989F1 /* JMSSwiftParseTests.swift in Sources */,
+				ACF20EE51A1C85EB005C6E9C /* testBool.swift in Sources */,
+				ACF20EE31A1C85C1005C6E9C /* testNSURL.swift in Sources */,
+				ACF20EDD1A1C853F005C6E9C /* testNSDate.swift in Sources */,
+				ACF20EE11A1C8592005C6E9C /* testEmail.swift in Sources */,
+				ACF20EDB1A1C84F8005C6E9C /* testAnyObject.swift in Sources */,
+				ACF20ED31A1C81DD005C6E9C /* testInt.swift in Sources */,
+				ACF20ED71A1C827E005C6E9C /* testString.swift in Sources */,
+				ACF20ED51A1C824A005C6E9C /* helpers.swift in Sources */,
+				ACF20ED91A1C84DC005C6E9C /* testNSString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

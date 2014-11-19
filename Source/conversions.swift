@@ -190,7 +190,7 @@ func convert(value : Int) -> NSNumber? {
 // MARK: Int <-> String
 
 func convert(value : String) -> Int? {
-	return NSString(string: value).integerValue
+	return value.toInt()
 }
 
 func convert(value : Int) -> String? {
@@ -200,7 +200,8 @@ func convert(value : Int) -> String? {
 // MARK: Int <-> NSString
 
 func convert(value : NSString) -> Int? {
-	return value.integerValue
+	let string = value as String
+	return string.toInt()
 }
 
 func convert(value : Int) -> NSString? {
@@ -220,7 +221,7 @@ func convert(value : Double) -> NSNumber? {
 // MARK: Double <-> String
 
 func convert(value : String) -> Double? {
-	return NSString(string: value).doubleValue
+	return value.toDouble()
 }
 
 func convert(value : Double) -> String? {
@@ -230,7 +231,8 @@ func convert(value : Double) -> String? {
 // MARK: Double <-> NSString
 
 func convert(value : NSString) -> Double? {
-	return value.doubleValue
+	let string = value as String
+	return string.toDouble()
 }
 
 func convert(value : Double) -> NSString? {
